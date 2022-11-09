@@ -15,10 +15,7 @@
 @import 'cmps/about-page.css';
 
 /* Apps */
-<<<<<<< HEAD
 @import 'apps/mail/mail-app.css';
 @import 'apps/mail/mail-list.css';
-=======
 /* @import 'apps/mail/mail-app.css'; */
->>>>>>> 23ba8dbdb7ba1ce00aaf60f839c1de5c739a2783
 @import 'apps/note/note-app.css';

@@ -6,8 +6,7 @@ export default {
 	template: `
 		<section class="search-bar-container">
             <section class="search-bar flex">
-                <i class="fa-solid fa-magnifying-glass"></i>
-				<button className='icon' v-html="getSvg('bars')" ></button>
+				<button className='icon' v-html="getKeepIcon('search')" ></button>
                 <input type="text" class="search-input" @input="setFilter" v-model="filterBy.searchWord" placeholder="Search">
                 <div class="note-type-filter">
                     <ul class="note-types clean-list flex">
@@ -39,8 +38,8 @@ export default {
 		setFilter() {
 			this.$emit('filtered', { ...this.filterBy })
 		},
-		getSvg(iconName) {
-			return svgService.getSvg(iconName)
+		getKeepIcon(iconName) {
+			return svgService.getKeepIcon(iconName)
 		},
 	},
 	computed: {

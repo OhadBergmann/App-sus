@@ -32,7 +32,6 @@ const routerOptions = {
                 },                
             ]
 		},
-		},
 		{
 			path: '/mail/inbox',
 			component: mailPage,
@@ -40,5 +39,6 @@ const routerOptions = {
 		}
 	],
 }
+		
 
 export const router = createRouter(routerOptions)
