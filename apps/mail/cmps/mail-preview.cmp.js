@@ -4,7 +4,7 @@ export default {
         <section class="mail-preview">
             <div class="mail-sender"> {{ mailSender }}</div>
             <div class="mail-title"> {{ mailData.subject }} {{ shortenBody }} </div>
-            <div class="attach-icon"> attach file icon </div>
+            <div class="attach-icon"> <img src="" alt="" /> </div>
             <div class="mail-date"> {{ mailDate }} </div>
         </section>
     `, data(){
@@ -27,10 +27,9 @@ export default {
             return currDate.getUTCDay() + '/' + currDate.getUTCMonth() + '/' +  currDate.getUTCFullYear() ;
         }, 
         mailSender(){
-            const currRegex = new RegExp('^\w{1,50}\b@');
-            const str = this.mailData.from;
-            console.log(str.match(currRegex));
-            return str;
+            let idx = this.mailData.from.indexOf('@');
+            if(idx > 20) idx = 20;
+            return this.mailData.from.substring(0,idx);
         }
     }
 }

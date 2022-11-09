@@ -19,7 +19,7 @@ function _createMail(){
             body:'Would love to catch up sometimes',
             isRead:false,
             sentAt:1599133930594,
-            from:'momo@momo.com',
+            from:'mother@gmail.com',
             to:'user@appsus.com',
             hasAttach: true
         },
@@ -29,7 +29,7 @@ function _createMail(){
             body:'Would love to catch up sometimes',
             isRead:false,
             sentAt:1557458930594,
-            from:'momo@momo.com',
+            from:'darth.puki@gmail.com',
             to:'user@appsus.com',
             hasAttach: false
         },
@@ -39,7 +39,7 @@ function _createMail(){
             body:'Would love to catch up sometimes',
             isRead:false,
             sentAt:1565133730594,
-            from:'momo@momo.com',
+            from:'master.yoga@gmail.com',
             to:'user@appsus.com',
             hasAttach: true
         },
@@ -49,7 +49,7 @@ function _createMail(){
             body:'Would love to catch up sometimes',
             isRead:false,
             sentAt:1588133930594,
-            from:'momo@momo.com',
+            from:'doctor.seuss@gmail.com',
             to:'user@appsus.com',
             hasAttach: false
         },
@@ -59,7 +59,7 @@ function _createMail(){
             body:'Would love to catch up sometimes',
             isRead:false,
             sentAt:1577133930594,
-            from:'momo@momo.com',
+            from:'The.Wizard.of.Oz@yahoo.com',
             to:'user@appsus.com',
             hasAttach: false
         },
