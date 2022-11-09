@@ -1,4 +1,5 @@
 export default {
+	name: 'appHome',
 	template: `
         <section class="home-page app-main">
 			<h2>Make life easier with a little help from our products</h2>

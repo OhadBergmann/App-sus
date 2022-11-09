@@ -1,4 +1,5 @@
 export default {
+	name: 'editNoteBox',
 	template: `
         <section class="edit-note-box">
 			<form @submit.prevent="onSaveNote">

@@ -1,0 +1,12 @@
+
+.todo-list{
+    font-size: 1.3em;
+}
+
+.todo-list li {
+    cursor: pointer;
+}
+
+.done {
+    text-decoration: line-through;
+}

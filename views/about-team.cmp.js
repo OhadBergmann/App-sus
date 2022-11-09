@@ -1,5 +1,7 @@
 
 export default {
+    name: 'aboutTeam',
+
     template: `
     <section class="about-team">
         <h2>Our team</h2>

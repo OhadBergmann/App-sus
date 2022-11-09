@@ -2,7 +2,7 @@ import { keepService } from '../services/note.service.js'
 import { eventBus } from '../../../services/event-bus.service.js'
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 import notePreview from '../cmps/note-preview.cmp.js'
-import addNoteBar from '../cmps/add-note-bar.cmp.js'
+import noteBar from '../cmps/note-bar.cmp.js'
 import noteFilter from '../cmps/note-filter.cmp.js'
 
 export default {
@@ -10,7 +10,7 @@ export default {
 		<section class="flex column align-center">
 			<section class="keep-main-layout flex column align-center">
 				<note-filter @filtered="setFilter"></note-filter>
-				<add-note-bar @saveNote="saveNote" :noteToEdit="noteToEdit" @closeEditBox="closeEditBox"></add-note-bar>
+				<note-bar @saveNote="saveNote" :noteToEdit="noteToEdit" @closeEditBox="closeEditBox"></note-bar>
 				<ul class="notes-list-container clean-list">
 					<li v-for="(note, idx) in notesForDisplay" :key="note.id">
 						<note-preview :note="note" @colorNote="changeNoteClr" @removeNote="removeNote"  @editNote="editNote"></note-preview>
@@ -26,7 +26,7 @@ export default {
 			filterBy: null,
 		}
 	},
-	components: { notePreview, addNoteBar, noteFilter },
+	components: { notePreview, noteBar, noteFilter },
 	methods: {
 		setFilter(filterBy) {
 			this.filterBy = filterBy

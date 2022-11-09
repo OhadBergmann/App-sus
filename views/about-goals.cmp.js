@@ -1,5 +1,6 @@
 
 export default {
+    name: 'aboutGoals',
     template: `
     <section class="about-goals">
         <h2>Our goals</h2>

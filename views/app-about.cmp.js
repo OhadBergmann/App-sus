@@ -1,4 +1,6 @@
 export default {
+    name: 'appAbout',
+
     template: `
         <section class="about-page">
             <!-- <h1 class="about-title">About us</h1> -->

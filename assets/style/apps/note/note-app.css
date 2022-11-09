@@ -1,3 +1,10 @@
+/* edit note  */
 @import url(./note-edit.css);
-@import url(./add-note-bar.css);
+/* filter note */
 @import url(./note-filter.css);
+/* container note */
+@import url(./note-container.css);
+/* note bar */
+@import url(./note-bar.css);
+/* todos */
+@import url(./note-todos.css);

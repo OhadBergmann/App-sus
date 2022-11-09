@@ -3,7 +3,7 @@
     min-width: 350px;
 }
 
-.add-note-bar{
+.note-bar{
     padding: 0.3em;
     width: 100%;
     margin-bottom: 1em;
@@ -22,6 +22,6 @@
     padding-top: 0.15em;
 }
 
-.add-note-bar span {
+.note-bar span {
     margin-inline-start: 0.5em;
 }
