@@ -6,5 +6,5 @@ const MAIL_KEY = 'loc-mail';
 
 
 function _createMail(){
-
+    
 }
