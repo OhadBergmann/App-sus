@@ -1,18 +1,26 @@
-.mail-preview{
+
+
+
+.mail-list .mail-preview{
     display: grid;
     grid-template-columns: repeat(10,minmax(75px,1fr));
-    grid-template-rows: minmax(75px,1fr);
+    grid-template-rows: minmax(1rem,2.8rem);
+    align-items: center;
 
     margin: 0;
-    margin-inline: 25px;
+    padding-inline: 15px 15px;
     border-top: 1px solid var(--mail-cls3);
+    box-shadow: none;
+    cursor: auto;
 }
 
-.mail-preview:hover{
-    
+.mail-list .mail-preview:hover{
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.35), 0px -1px 0.5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
 }
-.mail-preview >*{
-    font-size: 1.4rem;
+
+.mail-list .mail-preview >*{
+    font-size: 1.2rem;
 }
 
 .mail-preview .mail-sender{

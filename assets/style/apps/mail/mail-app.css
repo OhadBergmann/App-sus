@@ -1,5 +1,5 @@
 @import url(./mail-list.css);
-
+@import url(./mail-filter.css);
 main.mail-layout{
     
     height: 100vh;
@@ -7,13 +7,6 @@ main.mail-layout{
     overflow-x: hidden;
     background-color: var(--mail-cls12);
     margin-block-start: 0;
-}
-
-.mail-layout .mail-filter{
-    height: 6vh;
-    width: 100%;
-
-    background-color: var(--mail-cls9);
 }
 
 .mail-layout .table-container{
@@ -28,7 +21,7 @@ main.mail-layout{
     height: 100%;
     width: 50px;
 
-    background-color: var(--mail-cls9);
+    background-color: var(--mail-cls12);
 }
 
 .table-container .mail-table{
@@ -38,10 +31,16 @@ main.mail-layout{
     
     margin-block: 15px 0px;
     margin-inline: 15px 15px;
-    padding-block: 25px 0px;
-    padding-inline: 15px 15px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 
-    background-color: var(--clr2);
+    background-color: var(--clr1);
+}
+
+.table-container .mail-table header{
+    height: 6vh;
+    width: 100%;
+    
+    padding-block: 25px 0px;
+    padding-inline: 15px 15px;
 }

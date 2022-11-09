@@ -29,7 +29,7 @@ function _createMail(){
             body:'Would love to catch up sometimes',
             isRead:false,
             sentAt:1557458930594,
-            from:'lord.puki@gmail.com',
+            from:'darth.puki@gmail.com',
             to:'user@appsus.com',
             hasAttach: false
         },
