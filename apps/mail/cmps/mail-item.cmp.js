@@ -1,4 +1,5 @@
 export default {
+    props: ['mailItem'],
     template:`
         <section class="mail-item">
             <div class="mail-sender"> from</div>
@@ -10,5 +11,11 @@ export default {
         return {
 
         }
-    },
+    },watch:{
+        mailItem(){
+            if(this.mailItem){
+                console.log('got mail', this.mailItem)
+            }
+        }
+    }
 }

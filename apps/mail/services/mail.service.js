@@ -1,8 +1,7 @@
 import { storageService } from '/services/async-storage.service.js'
 
-let emails = null;
 const MAIL_KEY = 'loc-mail';
-_createMail()
+_createMail();
 
 export const clientService = {
     query,
@@ -13,7 +12,7 @@ function query() {
 }
 
 function _createMail(){
-    emails = [
+    const emails = [
         {
             id:'Xgm5Ye',
             subject:'Miss you!',
@@ -72,7 +71,11 @@ function _createMail(){
         },
     ];
     
-    emails.forEach(mail => {
-        storageService.post(MAIL_KEY, mail, true);
+    storageService.query()
+    .then(mails=>{
+        if(!mails || !(mails.length > 0)){
+            storageService.saveAll(MAIL_KEY, emails);
+        }
     });
+    
 }
