@@ -33,9 +33,11 @@ main.mail-layout{
     
     height: 100%;
     width: calc(100% - 50px);
-
+    
     margin-block: 15px 0px;
     margin-inline: 15px 15px;
+    padding-block: 25px 0px;
+    padding-inline: 15px 15px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 
