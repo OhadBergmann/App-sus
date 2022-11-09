@@ -31,9 +31,7 @@ const routerOptions = {
                     component: aboutGoals,
                 },                
             ]
-		},
-		},
-		{
+		},{
 			path: '/mail/list',
 			component: mailPage,
 
