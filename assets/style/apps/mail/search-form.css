@@ -1,0 +1,11 @@
+.mail-filter .search-bar .search-form{ 
+    width: 100%;
+    height: 30vh;
+
+    position: absolute;
+    top: 48px; /*element move downward according to the "search-bar" size (current=> height: 48px;)*/
+    left: 0; 
+
+    background-color: var(--mail-clr1);
+    border-radius: 8px;
+}

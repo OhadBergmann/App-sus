@@ -1,5 +1,7 @@
 @import url(./mail-list.css);
 @import url(./mail-filter.css);
+@import url(./search-form.css);
+
 main.mail-layout{
     
     height: 100vh;

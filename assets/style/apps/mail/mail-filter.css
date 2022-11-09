@@ -1,3 +1,17 @@
+.circle-animation{
+    animation-duration: 0.3s; 
+    animation-timing-function: ease-out;
+    animation-delay: 0ms;
+    animation-iteration-count: 1; 
+    animation-direction: normal; 
+    animation-fill-mode: none; 
+    animation-play-state: running;
+}
+
+.hideme{
+    display: none;
+}
+
 .mail-layout .mail-filter{
     height: 6vh;
     width: 100%;
@@ -16,20 +30,9 @@
     padding: 16px;
     margin-inline-end: 10px;
     background-color: transparent;
-
-    animation-duration: 0.3s; 
-    animation-timing-function: ease-out;
-    animation-delay: 0ms;
-    animation-iteration-count: 1; 
-    animation-direction: normal; 
-    animation-fill-mode: none; 
-    animation-play-state: running;
 }
 
 .mail-layout .mail-filter .open-menu:hover{
-    height: 64px;
-    width: 64px;
-    
     background-color: var(--mail-clr4);
     border-radius: 50%;
     animation-name: onHoverAnimation;
@@ -40,12 +43,55 @@
     width: 109px;
     margin-inline-end: 10px;
 }
+
 .mail-layout .mail-filter .search-bar{
-    height: 3rem;
+    height: 48px;
     width: 50%;
-    margin: 2px;
+
+    display: flex;
+    flex-direction: row;
+    position: relative;
 }
 
+.mail-filter .search-bar .search-icon{
+    height: 48px;
+    width: 48px;
+
+    padding: 8px;
+    align-self: center;
+}
+
+.mail-filter .search-bar .search-icon:hover{
+    background-color: var(--mail-clr4);
+    border-radius: 50%;
+    animation-name: onHoverAnimation;
+}
+
+.mail-filter .search-bar .search-icon:active{
+    background-color: var(--mail-clr4b);
+    animation-name: onHoverAnimation;
+    opacity: 0.7;
+}
+
+.mail-filter .search-bar .search-field{
+    border-radius: 12px;
+}
+
+.mail-filter .search-bar .advance-search{
+    height: 48px;
+    width: 48px;
+
+    padding: 10px;
+    align-self: center;
+    background-color: transparent;
+    border: none;
+}
+
+.mail-filter .search-bar .advance-search:hover{
+    background-color: var(--mail-clr4);
+    border-radius: 50%;
+    animation-name: onHoverAnimation;
+}
 
 @keyframes onHoverAnimation {
     0% {
