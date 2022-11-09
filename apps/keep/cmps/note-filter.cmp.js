@@ -1,8 +1,13 @@
+import { svgService } from "../services/svg.service.js"
+
 export default {
+	name: 'noteFilter',
+
 	template: `
 		<section class="search-bar-container">
             <section class="search-bar flex">
                 <i class="fa-solid fa-magnifying-glass"></i>
+				<button className='icon' v-html="getSvg('bars')" ></button>
                 <input type="text" class="search-input" @input="setFilter" v-model="filterBy.searchWord" placeholder="Search">
                 <div class="note-type-filter">
                     <ul class="note-types clean-list flex">
@@ -34,21 +39,24 @@ export default {
 		setFilter() {
 			this.$emit('filtered', { ...this.filterBy })
 		},
+		getSvg(iconName) {
+			return svgService.getSvg(iconName)
+		},
 	},
 	computed: {
 		isNote() {
 			return {
-				color: this.filterBy.noteType === 'noteTxt' ? '#2a9d8f' : 'black',
+				color: this.filterBy.noteType === 'noteTxt' ? '#1982c4' : 'black',
 			}
 		},
 		isList() {
 			return {
-				color: this.filterBy.noteType === 'noteTodos' ? '#e9c46a' : 'black',
+				color: this.filterBy.noteType === 'noteTodos' ? '#f7b801' : 'black',
 			}
 		},
 		isImg() {
 			return {
-				color: this.filterBy.noteType === 'noteImg' ? '#118ab2' : 'black',
+				color: this.filterBy.noteType === 'noteImg' ? '#9e2a2b' : 'black',
 			}
 		},
 		isVideo() {

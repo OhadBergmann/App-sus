@@ -1,4 +1,6 @@
 export default {
+    name: 'appHeader',
+
 	template: `
         <header class="app-header">
             <h1>AppSus</h1>
