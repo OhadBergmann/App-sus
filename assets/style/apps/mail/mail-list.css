@@ -1,5 +1,8 @@
 .mail-list{
     display: table;
+
+    margin-block-start: 25px;
+    margin-inline: 25px;
 }
 
 .mail-list .mail-sender{

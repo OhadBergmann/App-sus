@@ -1,11 +1,11 @@
-import mailItem from './mail-item.cmp.js';
+import mailPreview from './mail-preview.cmp.js';
 import { clientService } from '../services/mail.service.js'
 
 export default {
 
     template:`
         <section class="mail-list">
-            <mail-item v-if="mailList && mailList.length > 0" v-for="mail in mailList" :mail="mail"/>
+            <mail-preview v-if="mailList && mailList.length > 0" v-for="mail in mailList" :mail="mail"/>
         </section>
     `, data(){
         return {
@@ -17,6 +17,6 @@ export default {
             this.mailList = emails;
         });
     },components:{
-        mailItem,
+        mailPreview,
     }
 }
