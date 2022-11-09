@@ -1,6 +1,38 @@
 main.mail-layout{
+    
     height: 100vh;
     width: 100vw;
 
     background-color: var(--mail-cls12);
+    margin-block-start: 0;
+}
+
+.mail-layout .mail-filter{
+    height: 6vh;
+    width: 100%;
+
+    background-color: var(--mail-cls9);
+}
+
+.mail-layout .table-container{
+    height: calc(94vh);
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.table-container .mail-nav{
+    height: 100%;
+    width: 50px;
+
+    background-color: var(--mail-cls9);
+}
+
+.table-container .mail-table{
+    
+    height: 100%;
+    width: calc(100% - 50px);
+
+    background-color: var(--cls2);
 }

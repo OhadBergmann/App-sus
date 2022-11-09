@@ -1,7 +1,7 @@
 
 export default {
     template:`
-    <section class="mail-filter"></section>
+    <section class="mail-nav"></section>
     `, data(){
         return {
 
