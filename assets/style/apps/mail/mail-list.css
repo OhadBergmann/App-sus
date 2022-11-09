@@ -1,23 +1,41 @@
-.mail-list{
-    display: table;
+.mail-preview{
+    display: grid;
+    grid-template-columns: repeat(10,minmax(75px,1fr));
+    grid-template-rows: minmax(75px,1fr);
 
-    margin-block-start: 25px;
+    margin: 0;
     margin-inline: 25px;
+    border-top: 1px solid var(--mail-cls3);
 }
 
-.mail-list .mail-sender{
-
-}
-
-
-.mail-list .mail-title{
-
-}
-
-.mail-list .attach-icon{
+.mail-preview:hover{
     
 }
+.mail-preview >*{
+    font-size: 1.4rem;
+}
 
-.mail-list .mail-date{
+.mail-preview .mail-sender{
+    grid-column: 1/1;
+    grid-row: 1/1;
+}
+
+
+.mail-preview .mail-title{
+    grid-column: 2/7;
+    grid-row: 1/1;
+}
+
+.mail-preview .attach-icon{
+    grid-column: 9/9;
+    grid-row: 1/1;
     
+    text-align: center;
+}
+
+.mail-preview .mail-date{
+    grid-column: 10/11;
+    grid-row: 1/1;
+
+    text-align: center;
 }
