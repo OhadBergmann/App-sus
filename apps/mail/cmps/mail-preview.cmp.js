@@ -27,10 +27,8 @@ export default {
             return currDate.getUTCDay() + '/' + currDate.getUTCMonth() + '/' +  currDate.getUTCFullYear() ;
         }, 
         mailSender(){
-            const currRegex = new RegExp('^\w{1,50}\b@');
-            const str = this.mailData.from;
-            console.log(str.match(currRegex));
-            return str;
+            const idx = this.mailData.from.indexOf('@');
+            return this.mailData.from.substring(0,idx);
         }
     }
 }
