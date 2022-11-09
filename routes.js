@@ -21,7 +21,6 @@ const routerOptions = {
 		{
 			path: '/about',
 			component: aboutPage,
-<<<<<<< HEAD
 			children: [
                 {
                     path: 'team',
@@ -32,12 +31,12 @@ const routerOptions = {
                     component: aboutGoals,
                 },                
             ]
-=======
-		},{
+		},
+		{
 			path: '/mail/inbox',
 			component: mailPage,
->>>>>>> b3b921c8a0164339279df1748dda35cc878a3e9e
-		},
+
+		}
 	],
 }
 
