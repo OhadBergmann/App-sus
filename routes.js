@@ -15,7 +15,7 @@ const routerOptions = {
 			path: '/about',
 			component: aboutPage,
 		},{
-			path: '/mail',
+			path: '/mail/inbox',
 			component: mailPage,
 		},
 	],
