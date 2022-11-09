@@ -1,4 +1,6 @@
-main{
+main.mail-layout{
     height: 100vh;
     width: 100vw;
+
+    background-color: var(--mail-cls12);
 }

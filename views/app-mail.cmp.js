@@ -1,7 +1,6 @@
 export default {
-    temlate:`
-    <main>
-    </main>
+    template:`
+    <main class="mail-layout"></main>
     `, data(){
 
     }
