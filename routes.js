@@ -32,6 +32,12 @@ const routerOptions = {
                 },                
             ]
 		},
+		},
+		{
+			path: '/mail/inbox',
+			component: mailPage,
+
+		}
 	],
 }
 
