@@ -54,3 +54,7 @@ padding-right: .8px;
 .note-types li{
     margin: .5em;
 }
+
+.icon{
+    border:none;
+}
