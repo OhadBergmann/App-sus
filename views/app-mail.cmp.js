@@ -1,3 +1,4 @@
+import { clientService } from '../apps/mail/services/mail.service.js'
 
 import mailFilter from '../apps/mail/cmps/mail-filter.cmp.js';
 import mailNav from '../apps/mail/cmps/mail-nav.cmp.js';
@@ -9,15 +10,21 @@ export default {
         <mail-filter />
         <section class="table-container">
             <mail-nav />
-            <mail-table />
+            <mail-table v-if="mailItems && mailItems.length > 0" :mailItems="mailItems" />
         </section>
         
     </main>
     `, data(){
         return {
-            
+            mailItems: null,
         }
-    },components:{
+    },created(){
+        clientService.query()
+        .then(emails=>{
+            this.mailItems = emails;
+        });
+    },
+    components:{
         mailFilter,
         mailNav,
         mailTable,

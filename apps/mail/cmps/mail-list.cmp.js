@@ -4,9 +4,7 @@ export default {
     props: ['emails'],
     template:`
         <section class="mail-list">
-            <!-- <mail-item v-if="mailItems" v-for="mail in mailItems"/> -->
-        </article>
-           
+            <mail-item v-if="mailItems" v-for="mail in mailItems"/>
         </section>
     `, data(){
         return {
@@ -16,8 +14,9 @@ export default {
 
     },watch:{
         emails(){
-            if(this.emails && this.emails.length > 0){
+            if(this.emails !== null && this.emails.length > 0){
                 this.mailItems = this.emails;
+                console.log('got emails! - list');
             }
         }
     },components:{
