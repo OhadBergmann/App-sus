@@ -5,8 +5,8 @@ export default {
     template:`
         <section class="mail-details" >
             <div class="details-title">
-                <button class="back-btn">
-                    <img src ="" :src="backIcon" alt="" />
+                <button @click="backEvent" class="back-btn circle-animation">
+                    <img :src="backIcon" alt="" />
                 </button>
                 <span>FW:  </span>
                 {{ mailTitle }}
@@ -29,7 +29,10 @@ export default {
         this.backIcon = svgService.getMailIcon('back');
     },
     methods:{
-
+        backEvent(){
+            this.$emit('BackFromDetails');
+        }
+        
     },
     computed:{
         mailSender(){

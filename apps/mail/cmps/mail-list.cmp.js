@@ -8,7 +8,7 @@ export default {
         <section class="mail-list">
             <mail-preview v-if="mailList && mailList.length > 0" v-for="mail in filteredMail" :mail="mail"/>
 
-            <button @click="updateTab('inbox')">add Tab</button>
+            <button @click="updateTab('list')">add Tab</button>
         </section>
     `,
     data() {
@@ -24,7 +24,6 @@ export default {
                 this.filteredMail = emails;
             });
             eventBus.on('filter',this.onFilter);
-        //console.log(this.$route);
         
     },
     methods:{
@@ -48,17 +47,12 @@ export default {
         clientService,
     },
     watch: {
-        $route(newQuestion, oldQuestion) {
-           console.log(this.$route);
+        /*$route(newQuestion, oldQuestion) {
           },
         $route: {
             handler(newValue, oldValue) {
-                console.log(oldValue);
-                console.log(this.$route)
             },
             deep: true
-        }
+        }*/
     }
-
-
 }

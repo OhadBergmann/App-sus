@@ -7,7 +7,7 @@ export default {
         <section class="mail-table">
             <header></header>
             <mail-list class="" :class="{hideme: isDetails}"/>
-            <mail-details class="" :class="{hideme: !isDetails}"  :mail="currMailDetails"/>
+            <mail-details @BackFromDetails="backToInbox" class="" :class="{hideme: !isDetails}"  :mail="currMailDetails"/>
         </section >
     `, 
     data(){
@@ -19,14 +19,26 @@ export default {
     methods:{
         getDetails(mail){
             this.currMailDetails = mail
-            this.toggleDetails();
+            this.isDetails = true;
+            this.updateTab(`details/${this.currMailDetails.id}`)
         },
-        toggleDetails(){
-            this.isDetails = !this.isDetails;
+        backToInbox(){
+            this.isDetails = false;
+            this.updateTab('inbox')
+        },
+        updateTab(val){
+            this.$router.push({path:'/mail/list', query:{tab:val}})
         }
     },
     created(){
         eventBus.on('showDetails', this.getDetails);
+    },
+    watch:{
+        /*$route: {
+            handler(newValue, oldValue) {
+            },
+            deep: true
+        }*/
     },
     components:{
         eventBus,

@@ -8,14 +8,29 @@
 
 .mail-details .details-title{
     height: 4rem;
-
+    position: relative;
     font-size: 2.5rem;
 }
+
 .mail-details .details-title .back-btn{
+    width: 45px;
+    height: 45px;
+    
     position: absolute;
     top: 0;
     left: 0;
     transform: translate(-45px);
+
+    margin-block-start: 4px;
+
+    background-color: transparent;
+    border: none;
+}
+
+.mail-details .details-title .back-btn:hover{
+    background-color: var(--mail-clr4);
+    border-radius: 50%;
+    animation-name: onHoverAnimation;
 }
 
 .mail-details .details-title span{
