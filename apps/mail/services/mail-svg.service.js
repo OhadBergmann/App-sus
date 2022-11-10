@@ -36,6 +36,7 @@ const mailSvgs = {
   markStar: `./assets/img/mark-star.png`,
   notImportant: `./assets/img/not-important-icon.png`,
   markImportant: `./assets/img/mark-important-icon.png`,
+  markAttach:`./assets/img/attach-icon.png`,
 }
 
 function getMailIcon(iconName) {

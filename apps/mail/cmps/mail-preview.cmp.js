@@ -4,14 +4,17 @@ import { svgService } from '../services/mail-svg.service.js';
 export default {
     props: ['mail'],
     template:`
-        <section class="mail-preview" @click="openPreview">
+        <section class="mail-preview" @click="openPreview" >
             <input class="selected-icon" type="checkbox" />
             <img class="star-icon" :src="starSrc" alt="star" />
             <img class="important-icon" :src="importantIcon" alt="important" />
-            <div class="mail-sender"> {{ mailSender }}</div>
-            <div class="mail-title"> {{ mailData.subject }} {{ shortenBody }} </div>
-            <div class="attach-icon"> <img src="" alt="" /> </div>
-            <div class="mail-date"> {{ mailDate }} </div>
+            <div class="mail-sender" :class="{unread: unreadMail}"> {{ mailSender }}</div>
+            <div class="mail-title" >
+                <span :class="{unread: unreadMail}">{{ mailData.subject }} </span>
+                <span> {{ shortenBody }}  </span>
+            </div>
+            <div class="attach-icon"> <img :src="hasAttach" alt="" /> </div>
+            <div class="mail-date" :class="{unread: unreadMail}"> {{ mailDate }} </div>
         </section>
     `, 
     data(){
@@ -19,6 +22,8 @@ export default {
             mailData: null,
             starSrc: null,
             importantIcon: null,
+            unreadMail: false,
+            hasAttach: null,
         }
     },
     created(){
@@ -27,6 +32,8 @@ export default {
         this.starSrc = svgService.getMailIcon('star');
         (this.mail.isImportant)? this.importantIcon = svgService.getMailIcon('markImportant') :
         this.importantIcon  = svgService.getMailIcon('notImportant');
+        if(!this.mail.isRead) this.unreadMail = true;
+        if(this.mail.hasAttach) this.hasAttach = svgService.getMailIcon('markAttach');
         
     },
     methods:{
