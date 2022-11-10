@@ -7,7 +7,7 @@ export default {
     <main class="mail-layout">
         <mail-filter />
         <section class="table-container">
-            <mail-nav />
+            <mail-nav @composeNewMail="pingMe"/>
             <mail-table />
         </section>
         
@@ -15,6 +15,11 @@ export default {
     `, data(){
         return {
 
+        }
+    },
+    methods:{
+        pingMe(){
+            console.log('ping');
         }
     },
     components:{

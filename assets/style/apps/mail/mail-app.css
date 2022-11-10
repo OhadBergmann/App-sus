@@ -1,6 +1,7 @@
 @import url(./mail-list.css);
 @import url(./mail-filter.css);
 @import url(./search-form.css);
+@import url(./mail-nav.css);
 @import url(./mail-details.css);
 
 main.mail-layout{
@@ -22,21 +23,16 @@ main.mail-layout{
 
 .table-container{
     overflow-y: clip;
+    position: relative;
 }
 
-.table-container .mail-nav{
-    height: 100%;
-    width: 50px;
-
-    background-color: var(--mail-cls12);
-}
 
 .table-container .mail-table{
     
     height: 100%;
     width: calc(100% - 50px);
 
-    margin-inline: 15px 15px;
+    margin-inline: 65px 15px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 

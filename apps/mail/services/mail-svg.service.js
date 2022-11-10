@@ -37,6 +37,7 @@ const mailSvgs = {
   notImportant: `./assets/img/not-important-icon.png`,
   markImportant: `./assets/img/mark-important-icon.png`,
   markAttach:`./assets/img/attach-icon.png`,
+  composeNew:`./assets/img/compose-new-mail.png`,
 }
 
 function getMailIcon(iconName) {
