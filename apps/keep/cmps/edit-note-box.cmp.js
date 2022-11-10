@@ -2,7 +2,7 @@ export default {
 	name: 'editNoteBox',
 	template: `
         <section class="edit-note-box">
-			<form @submit.prevent="onSaveNote">
+			<form @submit.prevent="saveNote">
 				<input v-model="this.title" type="text" placeholder="Title" class="title-input" autofocus>
 				<hr>
 				<textarea v-model="this.noteInfo" :placeholder="noteTypePlaceholder" cols="30" rows="10" class="note-input" required></textarea>
@@ -21,7 +21,7 @@ export default {
             </div>
         </section>
     `,
-	props: ['noteType', 'noteToEdit'],
+	props: ['noteType', 'noteEdit'],
 	data() {
 		return {
 			title: null,
@@ -44,7 +44,7 @@ export default {
 			return {
 				color:
 					this.noteType === 'noteTxt' ||
-					this.noteToEdit?.type === 'noteTxt'
+					this.noteEdit?.type === 'noteTxt'
 						? '#2f934a'
 						: 'black',
 			}
@@ -53,7 +53,7 @@ export default {
 			return {
 				color:
 					this.noteType === 'noteTodos' ||
-					this.noteToEdit?.type === 'noteTodos'
+					this.noteEdit?.type === 'noteTodos'
 						? 'orange'
 						: 'black',
 			}
@@ -62,7 +62,7 @@ export default {
 			return {
 				color:
 					this.noteType === 'noteImg' ||
-					this.noteToEdit?.type === 'noteImg'
+					this.noteEdit?.type === 'noteImg'
 						? 'blue'
 						: 'black',
 			}
@@ -71,22 +71,23 @@ export default {
 			return {
 				color:
 					this.noteType === 'noteVideo' ||
-					this.noteToEdit?.type === 'noteVideo'
+					this.noteEdit?.type === 'noteVideo'
 						? '#d93025'
 						: 'black',
 			}
 		},
 	},
 	created() {
-		if (this.noteToEdit) {
-			this.title = this.noteToEdit.info.title
-			this.id = this.noteToEdit.id
-			this.isPinned = this.noteToEdit.isPinned
-			this.bgClr = this.noteToEdit.bgClr
+		if (this.noteEdit) {
+			this.noteEdit = noteEdit
+			this.title = this.noteEdit.info.title
+			this.id = this.noteEdit.id
+			this.isPinned = this.noteEdit.isPinned
+			this.bgClr = this.noteEdit.bgClr
 			this.noteInfo =
-				this.noteToEdit.info.txt ||
-				this.noteToEdit.info.src ||
-				this.noteToEdit.info.todos
+				this.noteEdit.info.txt ||
+				this.noteEdit.info.src ||
+				this.noteEdit.info.todos
 					.map(todo => {
 						return todo.task
 					})
