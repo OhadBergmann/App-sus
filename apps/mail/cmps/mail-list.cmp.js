@@ -31,7 +31,9 @@ export default {
         },
         onFilter(value){
             if(!this.mailList) return;
-            this.mailList = this.mailList.filter(()=>{true});
+            this.mailList = this.mailList.filter(()=>{
+                return true;
+            });
             console.log('on +' + value)
         }
     }
