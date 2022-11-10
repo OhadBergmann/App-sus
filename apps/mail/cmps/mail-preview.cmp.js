@@ -20,9 +20,10 @@ export default {
         mailDate(){
             const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September",
                                 "October", "November", "December"];
+
             let currDate = new Date(this.mailData.sentAt);
             if(currDate.getFullYear() === new Date().getFullYear()){
-                return currDate.getDay() + ' ' + monthNames[currDate.getMonth()];
+                return currDate.getDay() + ' ' + monthNames[currDate.getMonth()].substring(0,4) +'\`';
             }
             return currDate.getUTCDay() + '.' + currDate.getUTCMonth() + '.' +  currDate.getUTCFullYear() ;
         }, 
