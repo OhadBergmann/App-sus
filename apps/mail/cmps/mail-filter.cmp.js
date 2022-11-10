@@ -1,4 +1,5 @@
 import { svgService } from '../services/mail-svg.service.js';
+import { eventBus } from '/services/event-bus.service.js'
 import searchForm from './search-form.cmp.js'
 
 
@@ -10,9 +11,9 @@ export default {
         <div class="search-bar">
             <div class="search-icon circle-animation" v-html="searchIcon"></div>
             <input type="search" class="search-field"/>
-            <div @click="disableAdvanceIcon" class="advance-search circle-animation" :class="{hideme: isHidden}"
+            <div @click="openForm" class="advance-search circle-animation" :class="{hideme: isHidden}"
             v-html="advanceIcon"></div>
-            <search-form :class="{hideme: !isHidden}"/>
+            <search-form ref="elForm" :class="{hideme: !isHidden}"/>
         </div> 
     </section>
     `, data(){
@@ -23,9 +24,28 @@ export default {
             isHidden: false,
         }
     },methods:{
-        disableAdvanceIcon(){
+        openForm(){
             this.isHidden = true;
-        }
+            setTimeout(() => {
+                document.addEventListener('click', this.onClick);
+            }, 50); 
+        }, closeForm(){
+                document.removeEventListener('click', this.onClick);
+                this.isHidden = false;
+        },onClick($event) {
+            const mousePos = {x: $event.clientX, y: $event.clientY}
+            const elTopLeftPos = {x: this.$refs.elForm.$el.getBoundingClientRect().left,
+                y:this.$refs.elForm.$el.getBoundingClientRect().top}
+            const height = this.$refs.elForm.$el.clientHeight;
+            const width = this.$refs.elForm.$el.clientWidth;
+            
+            if((elTopLeftPos.x <= mousePos.x && mousePos.x <= elTopLeftPos.x + width) && 
+            (elTopLeftPos.y <= mousePos.y && mousePos.y <= elTopLeftPos.y + height)){
+               return;
+            }
+
+            this.closeForm();
+        },
     }, created(){
         this.openMenuIcon = svgService.getKeepIcon('bars');
         this.searchIcon = svgService.getKeepIcon('search');

@@ -24,7 +24,7 @@ export default {
             if(currDate.getFullYear() === new Date().getFullYear()){
                 return currDate.getDay() + ' ' + monthNames[currDate.getMonth()];
             }
-            return currDate.getUTCDay() + '/' + currDate.getUTCMonth() + '/' +  currDate.getUTCFullYear() ;
+            return currDate.getUTCDay() + '.' + currDate.getUTCMonth() + '.' +  currDate.getUTCFullYear() ;
         }, 
         mailSender(){
             let idx = this.mailData.from.indexOf('@');
