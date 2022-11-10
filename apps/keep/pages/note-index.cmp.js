@@ -10,8 +10,8 @@ export default {
 		<section class="flex column align-center">
 			<section class="keep-main-layout flex column align-center">
 				<note-filter @filtered="setFilter"></note-filter>
-				<note-bar @saveNote="saveNote" :noteToEdit="noteToEdit" @closeEditBox="closeEditBox"></note-bar>
-				<ul class="notes-list-container clean-list">
+				<note-bar @saveNote="saveNote" :noteEdit="noteEdit" @closeEditBox="closeEditBox"></note-bar>
+				<ul class="note-list clean-list">
 					<li v-for="(note, idx) in notesForDisplay" :key="note.id">
 						<note-preview :note="note" @colorNote="changeNoteClr" @removeNote="removeNote"  @editNote="editNote"></note-preview>
 					</li>
@@ -22,7 +22,7 @@ export default {
 	data() {
 		return {
 			notes: null,
-			noteToEdit: null,
+			noteEdit: null,
 			filterBy: null,
 		}
 	},
@@ -32,10 +32,10 @@ export default {
 			this.filterBy = filterBy
 		},
 		closeEditBox() {
-			this.noteToEdit = null
+			this.noteEdit = null
 		},
 		editNote(note) {
-			this.noteToEdit = note
+			this.noteEdit = note
 		},
 		saveNote(note) {
 			if (!note.id) {

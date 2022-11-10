@@ -1,21 +1,37 @@
 .note-container {
+
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 1.1em;
     min-height: 150px;
-    margin-bottom: 0.5em;
-    max-height: 300px;
+    margin-bottom: 1em;
+    /* max-height: 300px; */
+    /* min-width: 360px; */
+    height: fit-content;
     break-inside: avoid-column;
     font-size: 1em;
-    margin: .5em;
-    min-width: 360px;
     cursor: default;
     line-height: 1.25rem;
     word-wrap: break-word;
     pointer-events: auto;
-    -webkit-box-shadow: inset px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
     box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
 }
+
+/* 
+  .box:not(:first-of-type) {
+    margin: 1rem 0;
+    break-inside: avoid-column;
+    height: fit-content;
+    background-color: lightblue;
+    border: 1px solid black;
+  }
+  .box:first-of-type {
+    break-inside: avoid-column;
+    height: fit-content;
+    background-color: lightblue;
+    border: 1px solid black;
+  } */
+
 
 .action-btns li {
     cursor: pointer;
