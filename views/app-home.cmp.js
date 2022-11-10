@@ -6,8 +6,7 @@ export default {
 			<div class="home-page-img-container flex column align-center">
 				<div class="flex space-around">
 					<div class="img-container" @click="onNotes">
-						<!-- <img src="assets/img/icons8-google-keep-144.svg"> -->
-						<div class="sprite about"></div>
+						<img src="assets/img/icons8-google-keep-144.svg">
 						<h3>Notes</h3>
 					</div>
 					<div class="img-container" @click="onMail">
