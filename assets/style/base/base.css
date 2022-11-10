@@ -52,3 +52,7 @@ button {
   outline: 1px solid gold
 }
 
+/* hide an element with display: none! */
+.hideme{
+  display: none;
+}

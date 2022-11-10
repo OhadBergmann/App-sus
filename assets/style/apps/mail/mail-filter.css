@@ -8,10 +8,6 @@
     animation-play-state: running;
 }
 
-.hideme{
-    display: none;
-}
-
 .mail-layout .mail-filter{
     height: 6vh;
     width: 100%;

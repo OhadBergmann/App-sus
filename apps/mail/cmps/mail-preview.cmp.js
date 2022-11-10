@@ -3,7 +3,7 @@ import { eventBus } from '/services/event-bus.service.js';
 export default {
     props: ['mail'],
     template:`
-        <section class="mail-preview">
+        <section class="mail-preview" @click="openPreview">
             <div class="mail-sender"> {{ mailSender }}</div>
             <div class="mail-title"> {{ mailData.subject }} {{ shortenBody }} </div>
             <div class="attach-icon"> <img src="" alt="" /> </div>
@@ -17,6 +17,12 @@ export default {
     },
     created(){
         this.mailData = this.mail;
+    },
+    methods:{
+        openPreview(){
+            eventBus.emit('showDetails', this.mailData);
+        }
+        
     },
     computed:{
         shortenBody(){

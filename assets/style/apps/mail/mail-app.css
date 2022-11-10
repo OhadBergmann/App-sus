@@ -1,6 +1,7 @@
 @import url(./mail-list.css);
 @import url(./mail-filter.css);
 @import url(./search-form.css);
+@import url(./mail-details.css);
 
 main.mail-layout{
     
