@@ -13,7 +13,8 @@ export default {
 				<note-bar @saveNote="saveNote" :noteEdit="noteEdit" @closeEditBox="closeEditBox"></note-bar>
 				<ul class="note-list clean-list">
 					<li v-for="(note, idx) in notesForDisplay" :key="note.id">
-						<note-preview :note="note" @colorNote="changeNoteClr" @removeNote="removeNote"  @editNote="editNote"></note-preview>
+					<note-preview :note="note" @colorNote="changeNoteClr" @sendToMail="sendToMail" @copyNote="copyNote" @removeNote="removeNote" @pinNote="pinNote" @updateInfo="updateInfo" @editNote="editNote"></note-preview>
+
 					</li>
 				</ul>
 			</section>
@@ -28,6 +29,16 @@ export default {
 	},
 	components: { notePreview, noteBar, noteFilter },
 	methods: {
+		copyNote(id) {
+			const note = this.notes.find(note => note.id === id)
+			const idx = this.notes.findIndex(note => note.id === id)
+			keepService
+				.save(note)
+				.then(copiedNote => this.notes.splice(idx, 0, copiedNote))
+		},
+		pinNote() {
+			
+		},
 		setFilter(filterBy) {
 			this.filterBy = filterBy
 		},
@@ -46,11 +57,11 @@ export default {
 						type: 'success',
 						// .then(book => {
 						// 	this.book = book
-						// 		showSuccessMsg(`Review removed`)
+						// 		showSuccessMsg(`Note saved`)
 						// 	})
 						// 	.catch(err =>{
 						// 		console.log('OOPS', err)
-						// 		showErrorMsg('Cannot remove review')
+						// 		showErrorMsg('Cannot savw note')
 					})
 				})
 			} else {
@@ -63,11 +74,11 @@ export default {
 							type: 'success',
 							// .then(book => {
 							// 	this.book = book
-							// 		showSuccessMsg(`Review removed`)
+							// 		showSuccessMsg(`Note updated`)
 							// 	})
 							// 	.catch(err =>{
 							// 		console.log('OOPS', err)
-							// 		showErrorMsg('Cannot remove review')
+							// 		showErrorMsg('Cannot update note')
 						})
 					})
 				})
@@ -90,15 +101,27 @@ export default {
 				})
 			})
 		},
-// },
+		changeNoteClr(id, color) {
+			const note = this.notes.find(note => note.id === id)
+			note.bgClr = color
+			keepService.update(note).then(note =>
+				eventBus.emit('show-msg', {
+					txt: 'Note color changed',
+					type: 'success',
+				})
+			)
+		},
+		updateInfo() {
+
+		},
 	},
+	
 	computed: {
 		notesForDisplay() {
 			let notes = this.notes
 			if (this.filterBy?.noteType) {
 				notes = notes.filter(note => note.type === this.filterBy.noteType)
 			}
-
 			if (this.filterBy?.searchWord) {
 				const regex = new RegExp(this.filterBy.searchWord, 'i')
 				notes = notes.filter(note => {
@@ -110,6 +133,12 @@ export default {
 				})
 			}
 			return notes
+		},
+		pinNote() {
+			
+		},
+		sendToMail() {
+			
 		},
 	},
 	created() {
