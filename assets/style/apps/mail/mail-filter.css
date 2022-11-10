@@ -1,6 +1,6 @@
 .mail-layout .mail-filter{
     height: 6vh;
-    width: 100%;
+    width: calc(100% -80px);
 
     background-color: var(--mail-cls12);
 

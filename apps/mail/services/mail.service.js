@@ -1,19 +1,31 @@
 import { storageService } from '/services/async-storage.service.js'
 
 const MAIL_KEY = 'loc-mail';
+const DRAFT_KEY = 'draft-mail';
 _createMail();
 
 export const clientService = {
     query,
+    post,
 }
 
 function query() {
     return storageService.query(MAIL_KEY);
 }
 
+function post(storageType, mailData){
+    switch(storageType){
+        case 'mail':
+            storageService.post(MAIL_KEY,mailData);
+            break;
+        case 'draft':
+            //NOTE: using unshift so the first mail is the last one that had been composed
+            storageService.post(DRAFT_KEY,mailData,false); 
+            break;
+    }
+}
+
 function _createMail(){
-    
-    
     storageService.query()
     .then(mails=>{
         if(!mails || !(mails.length > 0)){

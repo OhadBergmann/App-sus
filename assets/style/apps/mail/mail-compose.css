@@ -1,0 +1,14 @@
+.mail-layout .mail-composer{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 36%;
+    width: 27%;
+
+    background-color: var(--mail-clr1);
+    z-index: 50;
+}
+
+.mail-layout .mail-composer.conceal{
+    display: none;
+}

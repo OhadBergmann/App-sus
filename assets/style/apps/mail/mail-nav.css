@@ -55,6 +55,9 @@
 .table-container .mail-nav[class*="widthslash"]{
     width: 64px;
 }
+.table-container .mail-nav:not([class*="widthslash"]){
+    box-shadow: 3px 5px 7px -1px rgba(0,0,0,0.35);
+}
 
 .mail-nav .compose-new-mail[class*="widthslash"]{
     width: 56px;
