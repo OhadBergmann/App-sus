@@ -33,22 +33,12 @@ export default {
         },
         onFilter(value){
             const str = value.toLowerCase()
-            if(!this.mailList) return;
-            console.log('on:', value)
-            
-            this.filteredMail = this.mailList.filter((mail) => {
-                const from = mail.body.toLowerCase();
-                const subject = mail.from.toLowerCase();
-                if(!subject.includes(str) && !from.includes(str)) {
-                    console.log('from:', from); 
-                    console.log('subject:', subject);
-                    console.log('toLowerCase:', str); 
-                    return false
-                }
-                return true
-                
-                 
-            });
+            if(!this.mailList || !value || value.length < 1) {
+                this.filteredMail = this.mailList;
+                return;
+            }
+            const regex = new RegExp(value.toLowerCase(), 'i')
+            this.filteredMail = this.mailList.filter((mail) => {return regex.test(mail.from)});
         }
     }
     ,
