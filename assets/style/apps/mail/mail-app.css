@@ -20,6 +20,10 @@ main.mail-layout{
     flex-direction: row;
 }
 
+.table-container{
+    overflow-y: clip;
+}
+
 .table-container .mail-nav{
     height: 100%;
     width: 50px;

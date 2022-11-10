@@ -1,6 +1,6 @@
 .mail-list .mail-preview{
     display: grid;
-    grid-template-columns: repeat(10,minmax(75px,1fr));
+    grid-template-columns: repeat(29, minmax(25px,1fr));
     grid-template-rows: minmax(1rem,2.8rem);
     align-items: center;
 
@@ -20,26 +20,43 @@
     font-size: 1.2rem;
 }
 
+
+.mail-preview .selected-icon{
+    grid-column: 1/2;
+    grid-row: 1/1;
+}
+
+.mail-preview .star-icon{
+    grid-column: 2/3;
+    grid-row: 1/1;
+}
+
+.mail-preview .important-icon{
+    grid-column: 3/4;
+    grid-row: 1/1;
+}
+
 .mail-preview .mail-sender{
-    grid-column: 1/1;
+    grid-column: 4/8;
     grid-row: 1/1;
 }
 
 
+
 .mail-preview .mail-title{
-    grid-column: 2/7;
+    grid-column: 9/25;
     grid-row: 1/1;
 }
 
 .mail-preview .attach-icon{
-    grid-column: 9/9;
+    grid-column: 25/25;
     grid-row: 1/1;
     
     text-align: center;
 }
 
 .mail-preview .mail-date{
-    grid-column: 10/11;
+    grid-column: 26/30;
     grid-row: 1/1;
 
     text-align: center;

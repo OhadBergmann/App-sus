@@ -7,8 +7,6 @@ export default {
     template: `
         <section class="mail-list">
             <mail-preview v-if="mailList && mailList.length > 0" v-for="mail in filteredMail" :mail="mail"/>
-
-            <button @click="updateTab('list')">add Tab</button>
         </section>
     `,
     data() {

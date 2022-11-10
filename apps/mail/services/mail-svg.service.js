@@ -31,6 +31,11 @@ const mailSvgs = {
   snooze: `https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/schedule_baseline_nv700_20dp.png`,
   sent: `https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/send_baseline_nv700_20dp.png`,
   times: `https://ssl.gstatic.com/ui/v1/icons/mail/rfr/ic_close_16px_1x.png/`,
+  garbageBin: `./assets/img/garbage-bin-icon.png`,
+  star: `https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_baseline_nv700_20dp.png`,
+  markStar: `./assets/img/mark-star.png`,
+  notImportant: `./assets/img/not-important-icon.png`,
+  markImportant: `./assets/img/mark-important-icon.png`,
 }
 
 function getMailIcon(iconName) {
