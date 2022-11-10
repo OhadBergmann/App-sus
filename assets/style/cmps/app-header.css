@@ -1,15 +1,6 @@
 /* HEADER */
 
-/* .app-header {
-  background-color: pink;
-  color: var(--secondary-clr1);
-  padding: 1em;
-  display: flex;
-  align-items: center;
-} */
-
 .app-header {
-  background-image: var(--clr3);
   color: #ffffff;
   font-size: 1.3rem;
   height: 4.3rem;
@@ -43,53 +34,37 @@
   transition: .4s;
 }
 
-/* .app-header .main-nav{
-
-} */
-/* mq */
-
-@media(max-width: 720px) {
-  .app-header {
-    background-color: var(--clr3);
-    color: var(--secondary-clr2);
-  }
-}
-
-
-.sprite .title{
-  /* background-image: url(https://ssl.gstatic.com/gb/images/p1_d9c8f691.png); */
+.sprite{
   background-image: url(../../img/logos.png);
   height: 64px;
   width: 64px;
+}
+
+.title{
   background-position-y: 963px;
-  
 }
- .sprite.keep{
-  /* background-image: url(https://ssl.gstatic.com/gb/images/p1_d9c8f691.png); */
-  background-image: url(../../img/logos.png);
-  height: 64px;
-  width: 64px;
+
+.keep{
   background-position-y: 1719px;
 }
 
- .sprite.books{
-  /* background-image: url(https://ssl.gstatic.com/gb/images/p1_d9c8f691.png); */
-  background-image: url(../../img/logos.png);
-  height: 64px;
-  width: 64px;
+.books{
   background-position-y: 754px;
 }
- .sprite.mail{
-  /* background-image: url(https://ssl.gstatic.com/gb/images/p1_d9c8f691.png); */
-  background-image: url(../../img/logos.png);
-  height: 64px;
-  width: 64px;
+
+.mail{
   background-position-y: 134px;
 }
 
-.sprite.about{
-  background-image: url(../../img/logos.png);
-  height: 64px;
-  width: 64px;
+.about{
   background-position-y: 547px;
 }
+
+  /* mq */
+  
+  @media(max-width: 720px) {
+    .app-header {
+      background-color: var(--clr3);
+      color: var(--secondary-clr2);
+    }
+  }

@@ -2,9 +2,9 @@ export default {
 	name: 'noteTxt',
 	props: ['info'],
 	template: `
-          <section class="note-txt">
-			  <h4>{{title}}</h4>
-              <p>{{txt}}</p>
+          <section class="note-txt" >
+			  <h4 contenteditable="true">{{title}}</h4>
+              <p contenteditable="true">{{txt}}</p>
           </section>
           `,
 	data() {

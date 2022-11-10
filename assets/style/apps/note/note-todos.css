@@ -5,6 +5,7 @@
 
 .todo-list li {
     cursor: pointer;
+    padding: .1em;
 }
 
 .done {

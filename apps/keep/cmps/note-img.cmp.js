@@ -3,7 +3,7 @@ export default {
 	props: ['info'],
 	template: `
   			<section class="note-img">
-              <h4 class="note-img-title">{{title}}</h4>
+              <h4 contenteditable="true" class="note-img-title">{{title}}</h4>
 			  <div>
 				  <img v-bind:src="src" :alt="this.title">
 			  </div>

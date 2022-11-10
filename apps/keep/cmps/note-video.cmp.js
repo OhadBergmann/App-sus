@@ -2,11 +2,10 @@ export default {
 	name: 'noteVideo',
 	props: ['info'],
 	template: `
-	<h1>add a video</h1>
 			<section class="note-video">
-              <h4 class="note-video-title">{{title}}</h4>
-				<div>
-					<iframe src="src" frameborder="0"></iframe>
+              <h4 class="note-video-title" contenteditable="true">{{title}}</h4>
+				<div class="video-container">
+					<iframe v-bind:src="src" frameborder="1"></iframe>
 				</div>
 			</section>
           `,

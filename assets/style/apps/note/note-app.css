@@ -6,7 +6,8 @@
 @import url(./note-container.css);
 /* note bar */
 @import url(./note-bar.css);
-/* todos */
+/* note edits */
 @import url(./note-todos.css);
 @import url(./note-list.css);
 @import url(./note-img.css);
+@import url(./note-video.css);
