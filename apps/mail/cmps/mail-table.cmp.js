@@ -7,16 +7,18 @@ export default {
         <section class="mail-table">
             <header></header>
             <mail-list class="" :class="{hideme: isDetails}"/>
-            <mail-details :class="{hideme: !isDetails}" class="hideme" />
+            <mail-details class="" :class="{hideme: !isDetails}"  :mail="currMailDetails"/>
         </section >
     `, 
     data(){
         return {
             isDetails: false,
+            currMailDetails: null
         }
     },
     methods:{
         getDetails(mail){
+            this.currMailDetails = mail
             this.toggleDetails();
         },
         toggleDetails(){

@@ -33,11 +33,11 @@ const mailSvgs = {
   times: `https://ssl.gstatic.com/ui/v1/icons/mail/rfr/ic_close_16px_1x.png/`,
 }
 
-function getKeepIcon(iconName) {
+function getMailIcon(iconName) {
   return mailSvgs[iconName]
 }
 
-export const svgService = { getKeepIcon }
+export const svgService = { getMailIcon }
 
 // in template
 /* <button className='icon' v-html="getSvg('bars')"></button> */

@@ -30,9 +30,9 @@ export default {
         }
     },
     created(){
-        this.openMenuIcon = svgService.getKeepIcon('bars');
-        this.searchIcon = svgService.getKeepIcon('search');
-        this.advanceIcon = svgService.getKeepIcon('controls');
+        this.openMenuIcon = svgService.getMailIcon('bars');
+        this.searchIcon = svgService.getMailIcon('search');
+        this.advanceIcon = svgService.getMailIcon('controls');
         
     },
     mounted(){
@@ -63,7 +63,6 @@ export default {
             this.closeForm();
         }, onFilter(){
             eventBus.emit('filter', this.filterBy.txt);
-            console.log('emit:', this.filterBy.txt)
         }
     }
     ,components:{
