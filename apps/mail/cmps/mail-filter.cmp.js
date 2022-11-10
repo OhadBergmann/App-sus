@@ -1,5 +1,6 @@
-import { svgService } from '../services/mail-svg.service.js';
 import { eventBus } from '/services/event-bus.service.js';
+import { svgService } from '../services/mail-svg.service.js';
+
 import searchForm from './search-form.cmp.js';
 
 
@@ -35,7 +36,7 @@ export default {
         
     },
     mounted(){
-        this.$emit('filter', this.filterBy.txt);
+       
     },
     methods:{
         openForm(){
@@ -61,12 +62,13 @@ export default {
             }
             this.closeForm();
         }, onFilter(){
-            console.log(filterBy.txt)
+            eventBus.emit('filter', this.filterBy.txt);
+            console.log('emit - input')
         }
     }
     ,components:{
         svgService,
         searchForm,
-        eventBus,
+      
     }
 }

@@ -17,9 +17,6 @@ export default {
     },
     created(){
         this.mailData = this.mail;
-        eventBus.on('filter', ()=>{
-            console.log(val);
-        });
     },
     computed:{
         shortenBody(){

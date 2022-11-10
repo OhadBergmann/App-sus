@@ -1,5 +1,6 @@
 import mailPreview from './mail-preview.cmp.js';
 import { clientService } from '../services/mail.service.js'
+import { eventBus } from '/services/event-bus.service.js';
 
 export default {
 
@@ -16,26 +17,31 @@ export default {
         }
     },
     created() {
-        console.log(this.$route);
-       
         clientService.query()
             .then(emails => {
                 this.mailList = emails;
             });
+            eventBus.on('filter',this.onFilter);
+        //console.log(this.$route);
+        
     },
     methods:{
         updateTab(val){
             this.$router.push({path:'/mail/list', query:{tab:val}})
+        },
+        onFilter(value){
+            if(!this.mailList) return;
+            this.mailList = this.mailList.filter(()=>{true});
+            console.log('on +' + value)
         }
     }
     ,
     components: {
         mailPreview,
+        eventBus,
+        clientService,
     },
-
-
     watch: {
-
         $route(newQuestion, oldQuestion) {
            console.log(this.$route);
           },
