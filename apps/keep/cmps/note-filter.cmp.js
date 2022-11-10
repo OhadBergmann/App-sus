@@ -45,17 +45,17 @@ export default {
 	computed: {
 		isNote() {
 			return {
-				color: this.filterBy.noteType === 'noteTxt' ? '#1982c4' : 'black',
+				color: this.filterBy.noteType === 'noteTxt' ? '#2f934a' : 'black',
 			}
 		},
 		isList() {
 			return {
-				color: this.filterBy.noteType === 'noteTodos' ? '#f7b801' : 'black',
+				color: this.filterBy.noteType === 'noteTodos' ? '#ffbd00' : 'black',
 			}
 		},
 		isImg() {
 			return {
-				color: this.filterBy.noteType === 'noteImg' ? '#9e2a2b' : 'black',
+				color: this.filterBy.noteType === 'noteImg' ? '#0077b6' : 'black',
 			}
 		},
 		isVideo() {

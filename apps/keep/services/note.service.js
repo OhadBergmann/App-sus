@@ -107,7 +107,7 @@ function _createNotes() {
 				isPinned: false,
 				bgClr: '#ffd6a5ff',
 				type: 'noteTxt',
-				info: { title: '', txt: 'New Password: 12345' },
+				info: { title: 'Passwords', txt: 'New Password: 12345' },
 			},
 			{
 				id: utilService.makeId(),

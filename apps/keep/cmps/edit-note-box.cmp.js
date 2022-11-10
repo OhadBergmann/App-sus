@@ -44,36 +44,28 @@ export default {
 			return {
 				color:
 					this.noteType === 'noteTxt' ||
-					this.noteEdit?.type === 'noteTxt'
-						? '#2f934a'
-						: 'black',
+					this.noteEdit?.type === 'noteTxt'? '#2f934a': 'black',
 			}
 		},
 		isList() {
 			return {
 				color:
 					this.noteType === 'noteTodos' ||
-					this.noteEdit?.type === 'noteTodos'
-						? 'orange'
-						: 'black',
+					this.noteEdit?.type === 'noteTodos'? '#ffbd00': 'black',
 			}
 		},
 		isImg() {
 			return {
 				color:
 					this.noteType === 'noteImg' ||
-					this.noteEdit?.type === 'noteImg'
-						? 'blue'
-						: 'black',
+					this.noteEdit?.type === 'noteImg'? '#0077b6': 'black',
 			}
 		},
 		isVideo() {
 			return {
 				color:
 					this.noteType === 'noteVideo' ||
-					this.noteEdit?.type === 'noteVideo'
-						? '#d93025'
-						: 'black',
+					this.noteEdit?.type === 'noteVideo'? '#d93025': 'black',
 			}
 		},
 	},
