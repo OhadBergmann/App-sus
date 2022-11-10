@@ -1,3 +1,5 @@
+import { eventBus } from '/services/event-bus.service.js';
+
 export default {
     props: ['mail'],
     template:`
@@ -7,13 +9,19 @@ export default {
             <div class="attach-icon"> <img src="" alt="" /> </div>
             <div class="mail-date"> {{ mailDate }} </div>
         </section>
-    `, data(){
+    `, 
+    data(){
         return {
             mailData: null,
         }
-    },created(){
+    },
+    created(){
         this.mailData = this.mail;
-    },computed:{
+        eventBus.on('filter', ()=>{
+            console.log(val);
+        });
+    },
+    computed:{
         shortenBody(){
             return this.mailData.body.substring(0, 50); 
         },
@@ -32,5 +40,8 @@ export default {
             if(idx > 20) idx = 20;
             return this.mailData.from.substring(0,idx);
         }
+    },
+    components:{
+        eventBus,
     }
 }

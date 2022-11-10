@@ -1,6 +1,6 @@
 import { svgService } from '../services/mail-svg.service.js';
-import { eventBus } from '/services/event-bus.service.js'
-import searchForm from './search-form.cmp.js'
+import { eventBus } from '/services/event-bus.service.js';
+import searchForm from './search-form.cmp.js';
 
 
 export default {
@@ -10,29 +10,45 @@ export default {
         <img class="refresh-page" src="./assets/img/mail-logo.png" />
         <div class="search-bar">
             <div class="search-icon circle-animation" v-html="searchIcon"></div>
-            <input type="search" class="search-field"/>
+            <input type="search" class="search-field" v-model="filterBy.txt" @input="onFilter"/>
             <div @click="openForm" class="advance-search circle-animation" :class="{hideme: isHidden}"
             v-html="advanceIcon"></div>
             <search-form ref="elForm" :class="{hideme: !isHidden}"/>
         </div> 
     </section>
-    `, data(){
+    `, 
+    data(){
         return {
             openMenuIcon: null,
             searchIcon: null,
             advanceIcon: null,
             isHidden: false,
+            filterBy: {
+                txt: ''
+            }
         }
-    },methods:{
+    },
+    created(){
+        this.openMenuIcon = svgService.getKeepIcon('bars');
+        this.searchIcon = svgService.getKeepIcon('search');
+        this.advanceIcon = svgService.getKeepIcon('controls');
+        
+    },
+    mounted(){
+        this.$emit('filter', this.filterBy.txt);
+    },
+    methods:{
         openForm(){
             this.isHidden = true;
             setTimeout(() => {
                 document.addEventListener('click', this.onClick);
             }, 50); 
-        }, closeForm(){
+        },
+        closeForm(){
                 document.removeEventListener('click', this.onClick);
                 this.isHidden = false;
-        },onClick($event) {
+        },
+        onClick($event) {
             const mousePos = {x: $event.clientX, y: $event.clientY}
             const elTopLeftPos = {x: this.$refs.elForm.$el.getBoundingClientRect().left,
                 y:this.$refs.elForm.$el.getBoundingClientRect().top}
@@ -43,15 +59,14 @@ export default {
             (elTopLeftPos.y <= mousePos.y && mousePos.y <= elTopLeftPos.y + height)){
                return;
             }
-
             this.closeForm();
-        },
-    }, created(){
-        this.openMenuIcon = svgService.getKeepIcon('bars');
-        this.searchIcon = svgService.getKeepIcon('search');
-        this.advanceIcon = svgService.getKeepIcon('controls');
-    },components:{
+        }, onFilter(){
+            console.log(filterBy.txt)
+        }
+    }
+    ,components:{
         svgService,
         searchForm,
+        eventBus,
     }
 }
