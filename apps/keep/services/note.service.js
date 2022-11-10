@@ -99,7 +99,17 @@ function _createNotes() {
 				type: 'noteVideo',
 				info: {
 					title: 'Ash - Live at Blue Lagoon',
-					src: 'https://www.youtube.com/embeded?v=5IfuDxHEWr8&ab_channel=Ash',
+					src: 'https://www.youtube.com/embed/5IfuDxHEWr8',
+				},
+			},
+			{
+				id: utilService.makeId(),
+				isPinned: false,
+				bgClr: '#bdb2ffff',
+				type: 'noteVideo',
+				info: {
+					title: 'Best swim',
+					src: 'https://www.youtube.com/embed/F16s7w-111s',
 				},
 			},
 			{
@@ -132,16 +142,7 @@ function _createNotes() {
 					],
 				},
 			},
-			{
-				id: utilService.makeId(),
-				isPinned: false,
-				bgClr: 'rgb(242, 139, 130)',
-				type: 'noteVideo',
-				info: {
-					title: 'Top 10 Top 10 Lists',
-					src: 'https://www.youtube.com/watch?v=F16s7w-111s&ab_channel=SportSensation',
-				},
-			},
+
 			{
 				id: utilService.makeId(),
 				isPinned: false,

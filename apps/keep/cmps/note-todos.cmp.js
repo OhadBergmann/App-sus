@@ -2,10 +2,10 @@ export default {
 	name: 'noteTodos',
 	props: ['info'],
 	template: `
-	<section class="note-todos">
-		<h4>{{title}}</h4>
+	<section class="note-todos" >
+		<h4 contenteditable="true">{{title}}</h4>
 		<ul class="todo-list">
-		  <li v-for="(todo,idx) in todos" :class="{done: todo.isDone}" @click="toggleDone(idx)">{{todo.task}}</li>
+		  <li v-for="(todo,idx) in todos" :class="{done: todo.isDone}" @click="toggleDone(idx)" contenteditable="true">{{todo.task}}</li>
 		</ul>
 	</section>
 	`,
