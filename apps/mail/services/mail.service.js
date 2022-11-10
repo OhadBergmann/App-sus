@@ -25,8 +25,9 @@ function _createMail(){
         },
         {
             id:'VrBQP',
-            subject:'Miss you!',
-            body:'Would love to catch up sometimes',
+            subject:'i\'m back baby!!!!',
+            body:`It\'s time to get wild again, my friend and fiend. Let\'s meet up at our standard planet and state exploring 
+            the universe by taking over it! it so good to catch up sometimes :)`,
             isRead:false,
             sentAt:1557458930594,
             from:'darth.puki@gmail.com',

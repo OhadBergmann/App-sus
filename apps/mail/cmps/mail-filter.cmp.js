@@ -63,7 +63,7 @@ export default {
             this.closeForm();
         }, onFilter(){
             eventBus.emit('filter', this.filterBy.txt);
-            console.log('emit - input')
+            console.log('emit:', this.filterBy.txt)
         }
     }
     ,components:{
