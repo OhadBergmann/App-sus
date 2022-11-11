@@ -11,7 +11,7 @@ export default {
             <mail-nav @composeNewMail="startNewDraft"/>
             <mail-table/>
         </section>
-        <compose-mail class="mail-composer" :class="{conceal :isComposeCmp}" @saveToDraft="saveDraft"/>
+        <compose-mail class="mail-composer" :class="{conceal :!isComposeCmp}" @saveToDraft="saveDraft"/>
     </main>
     `, data(){
         return {
@@ -20,6 +20,7 @@ export default {
     },
     methods:{
         startNewDraft(){
+            this.isComposeCmp = true
             console.log('ping');
         },
         saveDraft(){
