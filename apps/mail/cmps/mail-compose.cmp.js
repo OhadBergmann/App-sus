@@ -1,4 +1,5 @@
 import { svgService } from '../services/mail-svg.service.js';
+import { eventBus } from '/services/event-bus.service.js';
 
 export default { 
     props:['isOpen'],
@@ -24,7 +25,7 @@ export default {
                 :class="{twocells: hasTwoRecipient, threecells: hasThreeRecipient}"> 
                     <div class="recipient-placeholder" :class="{conceal: hasSubject}">Recipients</div>
                     <div class="to-txt" :class="{conceal: isToTxtConceal}">To:</div>
-                    <input class="target-input recipient" v-model="newMailData.subject" type="text" 
+                    <input class="target-input recipient" v-model="newMailData.from" type="text" 
                     @focus="handleConcealment('focus')"/>
                     <button class="add-copy btn" @click="handleConcealment('copy')" 
                     :class="{conceal: !isCopyConceal, conceal: isToTxtConceal}">Cc</button>
@@ -35,7 +36,10 @@ export default {
                     <div class="bcc-txt" :class="{conceal: isBlindConceal}">Bcc:</div>
                     <input class="blind-input recipient" :class="{conceal: isBlindConceal}" type="text"/>
                 </div>
-                <div class="mail-subject"></div>
+                <div class="mail-subject">
+                    <input class="subject-txt" v-model="newMailData.subject" type="text" 
+                        placeholder="Subject"/>
+                </div>
             </section>
             
         </section>
@@ -53,6 +57,8 @@ export default {
             minimizeCmp: null,
             shiftSize: null,
             closeX: null,
+            hasMouseClicked: false,
+            recipientOutFocus: true,
             newMailData: {
                 id: 'L3VNs3D7TCk',
                 tab: '',
@@ -73,6 +79,10 @@ export default {
         this.minimizeCmp = svgService.getMailIcon('minimizeIcon');
         this.shiftSize = svgService.getMailIcon('shiftSize');
         this.closeX = svgService.getMailIcon('closeX');
+
+        eventBus.on('mouseClicked',()=>{
+            this.hasMouseClicked = true;
+        })
     },
     methods:{
         saveAndClose(){
@@ -115,24 +125,22 @@ export default {
                     this.isToTxtConceal = false;
                     this.hasTwoRecipient = false;
                     this.hasThreeRecipient = false;
+                    this.recipientOutFocus = false;
                     break;
                 case 'copy' :
+                    this.recipientOutFocus = false;
                     this.isToTxtConceal = false;
                     this.isCopyConceal = false;
                     break;
                 case 'blind' :
+                    this.recipientOutFocus = false;
                     this.isToTxtConceal = false;
                     this.isBlindConceal = false;
                     break;
                 case 'null' :
-                    this.isToTxtConceal = true;
-                    this.isCopyConceal = true;
-                    this.isBlindConceal = true;
-                    this.hasTwoRecipient = false;
-                    this.hasThreeRecipient = false;
+                    this.recipientOutFocus = true;
                     break;
             }
-            if(this.isToTxtConceal) return
 
             const recipientsStatus = this.isCopyConceal + this.isBlindConceal;
             if(recipientsStatus === 1){
@@ -145,7 +153,7 @@ export default {
     },
     computed:{
         hasSubject(){
-            return (this.newMailData.subject.length > 0 || !this.isToTxtConceal)? true : false;
+            return (this.newMailData.from.length > 0 || !this.isToTxtConceal)? true : false;
         }
     }, 
     watch:{
@@ -159,10 +167,25 @@ export default {
                 } 
             }
         },
+        hasMouseClicked:{
+            handler(newValue, oldValue) {
+                if(newValue){
+                    if(this.recipientOutFocus){
+                        this.isToTxtConceal = true;
+                        this.isCopyConceal = true;
+                        this.isBlindConceal = true;
+                        this.hasTwoRecipient = false;
+                        this.hasThreeRecipient = false;
+                    }
+                   this.hasMouseClicked = false;
+                } 
+            }
+        }
 
     },
     components:{
         svgService,
+        eventBus,
        
     }
 }
