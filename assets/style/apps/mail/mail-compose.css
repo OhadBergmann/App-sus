@@ -68,6 +68,7 @@
     height: 12px;
 }
 
+/* --------------------- --------------------- sent-to area--------------------- ---------------------*/
 .mail-composer .send-to{
     height: 2.4rem;
     width: 100%;
@@ -79,30 +80,97 @@
     grid-template-rows: minmax(15px, 1fr);
 }
 
-.mail-composer .send-to >*{
-    height: 2.4rem;
+.mail-composer .send-to[class*="twocells"]{
+    height: 4.8rem; /* 2.4rem*2*/
+    grid-template-rows: repeat(2,minmax(15px, 1fr));
 }
+
+.mail-composer .send-to[class*="threecells"]{
+    height: 4.8rem; /* 7.2rem*3*/
+    grid-template-rows: repeat(3,minmax(15px, 1fr));
+}
+
+.mail-composer .send-to >*{
+    align-self: center;
+}
+
+.mail-composer .send-to .recipient{
+    
+    background-color: transparent;
+    border: none;
+    padding-block:0 0;
+}
+.mail-composer .send-to .recipient:focus{
+    outline: none;
+}
+
+.mail-composer .send-to .target-input{
+    grid-column: 2/12;
+    grid-row: 1/1;
+}
+
+.mail-composer .send-to[class*="twocells"] .copy-input{
+    grid-column: 2/14;
+    grid-row: 2/2;
+}
+
+.mail-composer .send-to[class*="threecells"] .copy-input{
+    grid-column: 2/14;
+    grid-row: 2/2;
+}
+
+.mail-composer .send-to[class*="twocells"] .blind-input{
+    grid-column: 2/14;
+    grid-row: 2/2;
+}
+
+.mail-composer .send-to[class*="threecells"] .blind-input{
+    grid-column: 2/14;
+    grid-row: 3/3;
+}
+
 
 .mail-composer .send-to .to-txt{
-    
     grid-column: 1/1;
     grid-row: 1/1;
+
+    font-size: 1rem;
+    align-items: center;
 }
 
-.mail-composer .send-to .find-recipient{
-    grid-column: 2/12;
-    grid-row: 1/1;
+.mail-composer .send-to .cc-txt{
+    grid-column: 1/1;
+    grid-row: 2/2;
+
+    font-size: 1rem;
+    align-items: center;
 }
 
-.mail-composer .send-to .find-recipient{
-    grid-column: 2/12;
-    grid-row: 1/1;
+.mail-composer .send-to .bcc-txt{
+    grid-column: 1/1;
+    grid-row: 2/2;
+
+    font-size: 1rem;
+    align-items: center;
 }
+
+.mail-composer .send-to[class*="threecells"] .bcc-txt{
+    grid-row: 3/3;
+}
+
+/*[class*="twocells"] [class*="twocells"]*/
+/* --------------------- --------------------- --------------------- ---------------------*/
 
 .mail-composer .send-to .btn {
     font-size: 1rem;
+    align-self: center;
+
     background-color: transparent;
     border: none;
+}
+
+.mail-composer .send-to .btn:hover{
+    text-decoration-line: underline;
 }
 
 .mail-composer .send-to .add-copy{
