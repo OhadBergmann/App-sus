@@ -1,5 +1,7 @@
 import { svgService } from '../services/mail-svg.service.js';
 import { eventBus } from '/services/event-bus.service.js';
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 export default { 
     props:['isOpen'],
@@ -186,6 +188,7 @@ export default {
     components:{
         svgService,
         eventBus,
+        QuillEditor,
        
     }
 }
