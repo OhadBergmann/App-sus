@@ -1,3 +1,4 @@
+import { clientService } from '../apps/mail/services/mail.service.js';
 import mailFilter from '../apps/mail/cmps/mail-filter.cmp.js';
 import mailNav from '../apps/mail/cmps/mail-nav.cmp.js';
 import mailTable from '../apps/mail/cmps/mail-table.cmp.js';
@@ -11,20 +12,25 @@ export default {
             <mail-nav @composeNewMail="startNewDraft"/>
             <mail-table/>
         </section>
-        <compose-mail class="mail-composer" :class="{conceal :!isComposeCmp}" @saveToDraft="saveDraft"/>
+        <compose-mail class="mail-composer" :class="{conceal :!isComposeCmp}" 
+        :isOpen="isComposeCmp" @saveToDraft="saveDraft" @saveAndClose="closeComposer"/>
     </main>
     `, data(){
         return {
-            isComposeCmp: false
+            isComposeCmp: false,
+            composeIntervalId: null,
         }
     },
     methods:{
         startNewDraft(){
             this.isComposeCmp = true
-            console.log('ping');
         },
-        saveDraft(){
-            console.log('pong');
+        saveDraft(value){
+            clientService.post('draft', value);
+        },
+        closeComposer(value){
+            clientService.post('draft', value);
+            this.isComposeCmp = false;
         }
     },
     components:{

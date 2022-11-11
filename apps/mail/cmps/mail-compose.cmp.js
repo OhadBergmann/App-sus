@@ -1,6 +1,7 @@
 import { svgService } from '../services/mail-svg.service.js';
 
 export default { 
+    props:['isOpen'],
     template:`
         <section class="" >
             <header class="new-mail-header">
@@ -12,15 +13,17 @@ export default {
                     <button class="full-screen" title="Full Screen (shift for pop-out)">
                         <img :src="shiftSize" alt="" />
                     </button>
-                    <button class="save-and-close" title="Save & Close">
+                    <button class="save-and-close" title="Save & Close" @click="saveAndClose">
                         <img :src="closeX" alt="" />
                     </button>
                 </div>
             </header>
             <div class="send-to" @mouseleave="handleConcealment('null')" 
             :class="{twocells: hasTwoRecipient, threecells: hasThreeRecipient}"> 
+                <div class="recipient-placeholder" :class="{conceal: hasSubject}">Recipients</div>
                 <div class="to-txt" :class="{conceal: isToTxtConceal}">To:</div>
-                <input class="target-input recipient" type="text" @focus="handleConcealment('focus')"/>
+                <input class="target-input recipient" v-model="newMailData.subject" type="text" 
+                @focus="handleConcealment('focus')"/>
                 <button class="add-copy btn" @click="handleConcealment('copy')" 
                 :class="{conceal: !isCopyConceal, conceal: isToTxtConceal}">Cc</button>
                 <button class="add-blind-copy btn" @click="handleConcealment('blind')" 
@@ -35,7 +38,7 @@ export default {
     `, 
     data(){
         return {
-            saveInterval: 0,
+            saveIntervalId: 0,
             isToTxtConceal: true,
             isCopyConceal: true,
             isBlindConceal: true,
@@ -45,7 +48,7 @@ export default {
             shiftSize: null,
             closeX: null,
             newMailData: {
-                id: '',
+                id: 'L3VNs3D7TCk',
                 tab: '',
                 subject:'',
                 body:'',
@@ -61,15 +64,16 @@ export default {
         }
     },
     created(){
-        this.saveInterval = setInterval(()=>{
-            this.$emit('saveToDraft',this.newMailData);
-        },3000);
-
         this.minimizeCmp = svgService.getMailIcon('minimizeIcon');
         this.shiftSize = svgService.getMailIcon('shiftSize');
         this.closeX = svgService.getMailIcon('closeX');
     },
     methods:{
+        saveAndClose(){
+            clearInterval(this.saveIntervalId);
+            this.$emit('saveAndClose',this.newMailData);
+            
+        },
         handleConcealment(activator){
             switch(activator){
                 case 'focus' :
@@ -105,7 +109,23 @@ export default {
         },
     },
     computed:{
+        hasSubject(){
+            return (this.newMailData.subject.length > 0 || !this.isToTxtConceal)? true : false;
+        }
     }, 
+    watch:{
+        isOpen:{
+            handler(newValue, oldValue) {
+                if(newValue){
+                    this.saveIntervalId = setInterval(()=>{
+                        this.$emit('saveToDraft',this.newMailData);
+                    },3000);
+                    //console.log('newValue: ',newValue,' |oldValue: ', oldValue);
+                } 
+            }
+        },
+
+    },
     components:{
         svgService,
        
