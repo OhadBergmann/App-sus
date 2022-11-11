@@ -1,12 +1,9 @@
 .note-container {
-
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 1.1em;
     min-height: 150px;
     margin-bottom: 1em;
-    /* max-height: 300px; */
-    /* min-width: 360px; */
     height: fit-content;
     break-inside: avoid-column;
     font-size: 1em;
@@ -17,28 +14,19 @@
     box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
 }
 
-/* 
-  .box:not(:first-of-type) {
-    margin: 1rem 0;
-    break-inside: avoid-column;
-    height: fit-content;
-    background-color: lightblue;
-    border: 1px solid black;
-  }
-  .box:first-of-type {
-    break-inside: avoid-column;
-    height: fit-content;
-    background-color: lightblue;
-    border: 1px solid black;
-  } */
-
+.note-container:hover{
+    box-shadow: 0px 3px 3px 2px #e0e0e0;
+}
+/* .note-container [data-title] {
+    background-color: #ffca3a;
+} */
 
 .action-btns li {
     cursor: pointer;
 }
 
 .note-content {
-    margin-bottom: 0.8em;
+    margin-bottom: 1em;
 	overflow: hidden;
 	text-overflow: clip;
 }

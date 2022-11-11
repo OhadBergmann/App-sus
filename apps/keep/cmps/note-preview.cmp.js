@@ -3,7 +3,6 @@ import noteTodos from './note-todos.cmp.js'
 import noteImg from './note-img.cmp.js'
 import noteVideo from './note-video.cmp.js'
 import colorPicker from './color-picker.cmp.js'
-
 export default {
 	name: 'notePreview',
 	
@@ -12,7 +11,7 @@ export default {
         <section class="note-container flex column space-between" :style="noteBgClr" >
                 <component :is="note.type" :info="note.info" @updateInfo="onUpdateInfo" class="note-content"></component>
                     <ul class="action-btns clean-list flex space-around">
-                        <li title="Change note's color"  class="fa-solid fa-palette" @click="openColorModal">
+                        <li title="Background options"  class=" color-bar fa-solid fa-palette" @click="openColorModal">
 							<color-picker v-if="isChooseClr" :noteId="this.note.id" @colorNote="onColorNote" @closeModal="closeColorModal"></color-picker>
 						</li>
                       

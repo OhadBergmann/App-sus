@@ -1,9 +1,9 @@
-.search-bar-container {
+.filter-bar-container {
     min-width: 400px;
     margin-left: 2em;
 }
 
-.search-bar {
+.filter-bar {
 padding-left: .8px;
 padding-right: .8px;
     background-color: #f0f2f3;
@@ -13,7 +13,7 @@ padding-right: .8px;
     border-radius: 10px;
 }
 
-.search-bar input {
+.filter-bar input {
     border: none;
     outline: none;
     width: 100%;
@@ -22,11 +22,11 @@ padding-right: .8px;
     background-color: #f0f2f3;
 }
 
-.search-bar input:focus-within{
+.filter-bar input:focus-within{
     background-color: rgba(255, 255, 255, 1);
 }
 
-.search-bar:focus-within{
+.filter-bar:focus-within{
     background-color: rgba(255, 255, 255, 1);
 }
 
@@ -38,7 +38,7 @@ padding-right: .8px;
 }
 
 
-.search-bar .fa-magnifying-glass {
+.filter-bar .fa-magnifying-glass {
     padding-top: 0.4em;
     margin-inline-end: 1em;
     margin-inline-start: .8em;
@@ -46,15 +46,25 @@ padding-right: .8px;
     font-size: 1.4em;
 }
 
-.search-bar:hover .note-type-filter {
+.filter-bar .note-type-filter {
     opacity: 1;
 }
 
 
 .note-types li{
-    margin: .5em;
+    margin: .15em;
 }
 
 .icon{
     border:none;
+}
+
+.note-types li {
+    padding: 0.3em;
+    cursor: pointer;
+}
+
+.note-types .fa-youtube {
+    font-size: 1.2rem;
+    padding-top: 0.15em;
 }

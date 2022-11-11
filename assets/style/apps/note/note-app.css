@@ -1,5 +1,5 @@
 /* edit note  */
-@import url(./note-edit.css);
+@import url(./edit-add-note.css);
 /* filter note */
 @import url(./note-filter.css);
 /* container note */
@@ -11,3 +11,4 @@
 @import url(./note-list.css);
 @import url(./note-img.css);
 @import url(./note-video.css);
+@import url(./action-btns.css);
