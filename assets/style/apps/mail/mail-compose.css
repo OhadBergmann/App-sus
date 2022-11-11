@@ -12,8 +12,25 @@
     background-color: var(--mail-clr1);
     box-shadow: -1px -1px 7px 1px var(--mail-clr6);
     z-index: 50;
+}
+
+.mail-layout .mail-composer[class*="minimum"]{
+    height: 2.4rem;
+}
+
+.mail-layout .mail-composer[class*="large"]{
+    bottom: 50%;
+    right: 50%; 
+
+    height: 72%;
+    width: 54%;
+
+    transform: translate(50%, 50%);
+}
 
 
+.mail-layout .mail-composer[class*="minimum"] .new-mail-body{
+    display: none;
 }
 
 .mail-composer .new-mail-header{
@@ -71,7 +88,6 @@
 /* --------------------- --------------------- sent-to area--------------------- ---------------------*/
 .mail-composer .send-to{
     height: 2.4rem;
-    width: 100%;
     margin-inline: 15px 15px;
     border-bottom: 1px solid var(--mail-clr3);
 
