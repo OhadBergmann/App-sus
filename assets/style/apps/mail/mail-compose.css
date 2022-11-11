@@ -232,3 +232,15 @@
 .mail-composer .mail-subject .subject-txt:hover,:focus{
     outline: none;
 }
+
+.mail-composer .txt-block{
+    width: 100%;
+    padding-inline: 15px 15px;
+    height: 285px;
+    border: none;
+    resize: none;
+}
+
+.mail-layout .mail-composer[class*="large"] .txt-block{
+    height: 735px;
+}

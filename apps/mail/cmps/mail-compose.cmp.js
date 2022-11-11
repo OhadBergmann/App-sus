@@ -1,7 +1,5 @@
 import { svgService } from '../services/mail-svg.service.js';
 import { eventBus } from '/services/event-bus.service.js';
-import { QuillEditor } from '@vueup/vue-quill'
-import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 export default { 
     props:['isOpen'],
@@ -42,6 +40,7 @@ export default {
                     <input class="subject-txt" v-model="newMailData.subject" type="text" 
                         placeholder="Subject"/>
                 </div>
+                <textarea class="txt-block" v-model="newMailData.body"></textarea>
             </section>
             
         </section>
@@ -188,7 +187,5 @@ export default {
     components:{
         svgService,
         eventBus,
-        QuillEditor,
-       
     }
 }
