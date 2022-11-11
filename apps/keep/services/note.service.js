@@ -41,7 +41,7 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: '#ffadadff',
+				bgClr: '#fdcfe8',
 				type: 'noteTxt',
 				info: { title: '', txt: 'Password: 12345' },
 			},
@@ -95,7 +95,7 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: 'white',
+				bgClr: '#fdcfe8',
 				type: 'noteVideo',
 				info: {
 					title: 'Ash - Live at Blue Lagoon',
@@ -105,7 +105,7 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: '#bdb2ffff',
+				bgClr: '#d7aefb',
 				type: 'noteVideo',
 				info: {
 					title: 'Best swim',
@@ -193,7 +193,7 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: '#bdb2ffff',
+				bgClr: '#d7aefb',
 				type: 'noteTxt',
 				info: {
 					title: 'Call my girlfriend!',

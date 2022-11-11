@@ -5,8 +5,8 @@ export default {
 
 	template: `
 	<section> 
-		<div v-if="!isEditOrAdd" class="add-note-bar flex space-between" @click="changeNoteType('noteTxt')">	
-			<h1>take a note...</h1>
+		<div v-if="!isEditOrAdd" class="add-note-bar" @click="changeNoteType('noteTxt')">	
+		<p>Take a note...</p>
 	</div>
 	</section>
 	<edit-note-box v-if="isEditOrAdd" @changeNoteType="changeNoteType" :noteToEdit="this.noteToEdit" :noteType="this.noteType" @saveNote="saveNote" @closeEditBox="closeEditBox"></edit-note-box>
@@ -19,20 +19,21 @@ export default {
 		}
 	},
 	methods: {
-		saveNote() {
-			
+		saveNote(note) {
+			this.$emit('saveNote', note)	
 		},
 
 		closeEditBox() {
-			
+			this.noteType = null
+			this.$emit('closeEditBox')
 		},
-		changeNoteType() {
-			
-		}
+		changeNoteType(type) {
+			this.noteType = type
+		},
 	},
 	computed: {
 		isEditOrAdd() {
-			
+			if (this.noteToEdit || this.noteType) return true
 		},
 	},
 

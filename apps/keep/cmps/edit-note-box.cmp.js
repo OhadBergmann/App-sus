@@ -1,14 +1,13 @@
 export default {
 	name: 'editNoteBox',
 	template: `
-        <section class="edit-note-box">
+        <section class="edit-note-box hide">
 			<form @submit.prevent="saveNote">
 				<input v-model="this.title" type="text" placeholder="Title" class="title-input" autofocus>
-				<hr>
 				<textarea v-model="this.noteInfo" :placeholder="noteTypePlaceholder" cols="30" rows="10" class="note-input" required></textarea>
-				<div class="note-edit-btns flex space-between">
-					<input type="button" @click="onDiscardNote" value="Discard">
-					<input type="submit" value="Save">
+				<div class="flex space-between">
+					<input class="note-edit-btns" type="button" @click="onDiscardNote" value="Close">
+					<input class="note-edit-btns" type="submit" value="Save">
 				</div>
 			</form>
 			<div class="note-type-select">
@@ -36,6 +35,57 @@ export default {
 			this.$emit('changeNoteType', noteType)
 		},
 		onDiscardNote() {
+			this.$emit('closeEditBox')
+		},
+		onSaveNote() {
+			switch (this.noteType || this.noteToEdit.type) {
+				case 'noteTxt':
+					this.$emit('saveNote', {
+						id: this.id,
+						isPinned: this.isPinned,
+						bgClr: this.bgClr,
+						type: this.noteType || this.noteToEdit.type,
+						info: { title: this.title, txt: this.noteInfo },
+					})
+					break
+				case 'noteTodos':
+					let todos = this.noteInfo.split(',')
+					todos = todos.map(todo => {
+						return { task: todo, isDone: false }
+					})
+					this.$emit('saveNote', {
+						id: this.id,
+						isPinned: this.isPinned,
+						bgClr: this.bgClr,
+						type: this.noteType || this.noteToEdit.type,
+						info: { title: this.title, todos },
+					})
+					break
+				case 'noteImg':
+					this.$emit('saveNote', {
+						id: this.id,
+						isPinned: this.isPinned,
+						bgClr: this.bgClr,
+						type: this.noteType || this.noteToEdit.type,
+						info: { title: this.title, src: this.noteInfo },
+					})
+					break
+				case 'noteVideo':
+					if (!this.noteInfo.includes('watch?v=')) {
+						console.log('Invalid Youtube link')
+						break
+					}
+					let link = this.noteInfo
+					link = link.replace('watch?v=', 'embed/')
+					this.$emit('saveNote', {
+						id: this.id,
+						isPinned: this.isPinned,
+						bgClr: this.bgClr,
+						type: this.noteType || this.noteToEdit.type,
+						info: { title: this.title, src: link },
+					})
+					break
+			}
 			this.$emit('closeEditBox')
 		},
 	},
@@ -66,6 +116,18 @@ export default {
 				color:
 					this.noteType === 'noteVideo' ||
 					this.noteEdit?.type === 'noteVideo'? '#d93025': 'black',
+			}
+		},
+		noteTypePlaceholder() {
+			switch (this.noteType) {
+				case 'noteTxt':
+					return 'Take a note'
+				case 'noteTodos':
+					return 'Type your tasks (separated by a ",")'
+				case 'noteImg':
+					return 'Enter image URL'
+				case 'noteVideo':
+					return 'Enter Youtube URL'
 			}
 		},
 	},

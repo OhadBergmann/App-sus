@@ -4,8 +4,8 @@ export default {
 	name: 'noteFilter',
 
 	template: `
-		<section class="search-bar-container">
-            <section class="search-bar flex">
+		<section class="filter-bar-container">
+            <section class="filter-bar flex">
 				<button className='icon' v-html="getKeepIcon('search')" ></button>
                 <input type="text" class="search-input" @input="setFilter" v-model="filterBy.searchWord" placeholder="Search">
                 <div class="note-type-filter">
