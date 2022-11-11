@@ -1,14 +1,65 @@
 .mail-layout .mail-composer{
     position: fixed;
     bottom: 0;
-    right: 0;
+    right: 7.5px;
     height: 36%;
     width: 27%;
 
     background-color: var(--mail-clr1);
+    box-shadow: -1px -1px 7px 1px var(--mail-clr6);
     z-index: 50;
+
+
 }
 
 .mail-layout .mail-composer.conceal{
     display: none;
+}
+
+.mail-composer .new-mail-header{
+    height: 2.4rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    font-size: 1.2rem;
+
+    background-color: var(--mail-cls12);
+}
+
+.mail-composer .new-mail-header label{
+    justify-self:flex-start;
+    align-self: center;
+    flex: 1;
+    padding: 0.6rem;
+}
+
+.mail-composer .new-mail-handler{
+    height: 2.4rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-self:flex-end;
+    align-self: center;
+}
+
+.mail-composer .new-mail-handler button{
+    height: 24px;
+    width: 24px;
+
+    background-color: transparent;
+    border: none;
+}
+
+.mail-composer .send-to{
+    height: 2.4rem;
+    margin-inline: 15px 15px;
+    border-bottom: 1px solid var(--mail-clr3);
+}
+
+.mail-composer .mail-subject{
+    height: 2.4rem;
+    margin-inline: 15px 15px;
+    border-bottom: 1px solid var(--mail-clr3);
 }

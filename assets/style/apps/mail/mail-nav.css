@@ -23,7 +23,7 @@
     align-items: center;
 
 
-    background-color: rgb(255, 251, 237);
+    background-color: var(--mail-clr1);
     border-radius: 17px;
     margin: 4px;
     box-shadow: 2px 5px 10px -2px var(--mail-clr6);

@@ -39,6 +39,7 @@ function _createMail(){
 const HARDCODED_MAIL = [
     {
         id:'Xgm5Ye',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -51,6 +52,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'VrBQP',
+        tab: 'inbox',
         subject:'i\'m back baby!!!!',
         body:`It\'s time to get wild again, my friend and fiend. Let\'s meet up at our standard planet and state exploring 
         the universe by taking over it! it so good to catch up sometimes :)`,
@@ -64,6 +66,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'1hvkg',
+        tab: 'inbox',
         subject:'dear padawan',
         body:`catch up, i Would love to sometimes, as long as not disturbed your studies are. 
         having much fun i! and giggles this tiny island makes me. back shell you write me a mail.
@@ -78,6 +81,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'SJIHg',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -90,6 +94,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'pHh7h',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -102,18 +107,48 @@ const HARDCODED_MAIL = [
     },
     {
         id:'4uSnH',
-        subject:'Miss you!',
-        body:'Would love to catch up sometimes',
+        tab: 'inbox',
+        subject:'URGENT!',
+        body:`Assalamu'alaikum!
+        This is Brenda J. Gonzalez (LTC) of the U.S Army Special Operations Command (USASOC), 
+        7th Special Forces Group (Airborne), Air Force Base, Afghanistan Please I need your urgent 
+        assistance in securing a consignment (two trunk boxes) containing ($20,000,000), the funds 
+        are surpluses of several contracts executed by my department during a supply of MH (Military Hardware).
+        
+        The consignment is presently in Amsterdam Schiphol Airport in the Netherlands, 
+        via a U.S Military Air & Surface Transportation Company (ADM Europa LLC). 
+        My desire and purpose is to have the (ADM Europa LLC) to deliver the funds to you for safe-keeping until 
+        I return back to the U.S mid-next year after my deployment. 
+        
+        If you receive this message please e-mail me immediately with a delivery address and your full contact information; 
+        the deal is 60/40 split (60% for me and 40% for you); I am not a greedy woman and I hope you will 
+        not double cross a struggling uniform single mother with 3 teenage children?
+        
+        Once you receive the consignment ($20,000,000) take out your 40% ($8,000,000) and save my 60% ($12,000,000) 
+        for me until I return back to the U.S mid-next year after my deployment.
+        
+        May God bless you as you extend your helping hand to the needy!
+    
+        Please REPLY!
+        
+        Respectfully,
+        
+        Lt. Col. Brenda J. Gonzalez (Mrs.)
+        
+        U.S. Army 7th Special Forces Group (Airborne)
+        
+        Air Force Base : Afghanistan`,
         isRead: true,
         isImportant: false,
         hasStar: false,
         sentAt:1574738930594,
-        from:'momo@momo.com',
+        from:'nigerian.prince@yahoo.com',
         to:'user@appsus.com',
         hasAttach: true
     },
     {
         id:'YfhW3',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead:false,
@@ -125,6 +160,7 @@ const HARDCODED_MAIL = [
         hasAttach: true
     },{
         id:'Xgm5Ye',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -137,6 +173,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'VrBQP',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -149,6 +186,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'1hvkg',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -161,6 +199,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'SJIHg',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -173,6 +212,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'pHh7h',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -185,6 +225,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'4uSnH',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -197,6 +238,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'YfhW3',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -208,6 +250,7 @@ const HARDCODED_MAIL = [
         hasAttach: true
     },{
         id:'Xgm5Ye',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead:false,
@@ -220,6 +263,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'VrBQP',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -232,6 +276,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'1hvkg',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -244,6 +289,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'SJIHg',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -256,6 +302,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'pHh7h',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -268,6 +315,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'4uSnH',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -280,6 +328,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'YfhW3',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -291,6 +340,7 @@ const HARDCODED_MAIL = [
         hasAttach: true
     },{
         id:'Xgm5Ye',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -303,6 +353,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'VrBQP',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -315,6 +366,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'1hvkg',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -327,6 +379,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'SJIHg',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -339,6 +392,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'pHh7h',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -351,6 +405,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'4uSnH',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -363,6 +418,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'YfhW3',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -374,6 +430,7 @@ const HARDCODED_MAIL = [
         hasAttach: true
     },{
         id:'Xgm5Ye',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead:false,
@@ -386,6 +443,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'VrBQP',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -398,6 +456,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'1hvkg',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -410,6 +469,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'SJIHg',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -422,6 +482,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'pHh7h',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -434,6 +495,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'4uSnH',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -446,6 +508,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'YfhW3',
+        tab: 'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
