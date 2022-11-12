@@ -26,10 +26,23 @@ export default {
             hideDescription: true,
             isChopped: true,
             composeIcon: null, 
+            inboxIcon: null,
+            starIcon: null,
+            scheduleIcon: null,
+            importantIcon: null,
+            sentIcon: null,
+            draftIcon: null,
 
         }
     },created(){
         this.composeIcon = svgService.getMailIcon('composeNew');
+        this.inboxIcon = svgService.getMailIcon('inboxIcon');
+        this.starIcon = svgService.getMailIcon('star');
+        this.scheduleIcon = svgService.getMailIcon('scheduleIcon');
+        this.importantIcon = svgService.getMailIcon('notImportant');
+        this.sentIcon = svgService.getMailIcon('sentIcon');
+        this.draftIcon = svgService.getMailIcon('draftIcon');
+         
     },
     methods:{
         expendPanel(){

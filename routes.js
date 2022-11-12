@@ -10,6 +10,7 @@ import mailImportant from './apps/mail/cmps/mail-important.cmp.js'
 import mailOutbox from './apps/mail/cmps/mail-outbox.cmp.js'
 import mailDraft from './apps/mail/cmps/mail-draft.cmp.js'
 
+
 const { createRouter, createWebHashHistory } = VueRouter
 
 const routerOptions = {
@@ -40,6 +41,10 @@ const routerOptions = {
 			path: '/mail/list',
 			component: mailPage,
 			children: [
+				{
+                    path: '/mail/list',
+                    component: mailPage,
+                },
 				{
                     path: '/mail/stars',
                     component: mailStar,

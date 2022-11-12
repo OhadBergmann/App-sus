@@ -7,7 +7,7 @@ import searchForm from './search-form.cmp.js';
 export default {
     template:`
     <section class="mail-filter">
-        <div class="open-menu circle-animation" v-html="openMenuIcon"></div> 
+        <div class="open-menu circle-animation" v-html="openMenuIcon" @click="refreshPage"></div> 
         <img class="refresh-page" src="./assets/img/mail-logo.png" />
         <div class="search-bar">
             <div class="search-icon circle-animation" v-html="searchIcon"></div>
@@ -35,10 +35,10 @@ export default {
         this.advanceIcon = svgService.getMailIcon('controls');
         
     },
-    mounted(){
-       
-    },
     methods:{
+        refreshPage(){
+            document.location.reload(true);
+        },
         openForm(){
             this.isHidden = true;
             setTimeout(() => {
