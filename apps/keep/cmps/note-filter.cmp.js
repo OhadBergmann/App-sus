@@ -10,10 +10,10 @@ export default {
                 <input type="text" class="search-input" @input="setFilter" v-model="filterBy.searchWord" placeholder="Search">
                 <div class="note-type-filter">
                     <ul class="note-types clean-list flex">
-                        <li :style="isNote" class="fa-solid fa-comment" @click="changeNoteFilter('noteTxt')"></li>
-                        <li :style="isList" class="fa-solid fa-list" @click="changeNoteFilter('noteTodos')"></li>
-                        <li :style="isImg" class="fa-solid fa-image" @click="changeNoteFilter('noteImg')"></li>
-                        <li :style="isVideo" class="fa-brands fa-youtube" @click="changeNoteFilter('noteVideo')"></li>
+                        <li title="Notes" :style="isNote" class="fa-solid fa-comment" @click="changeNoteFilter('noteTxt')"></li>
+                        <li title="TDOOS" :style="isList" class="fa-solid fa-list" @click="changeNoteFilter('noteTodos')"></li>
+                        <li title="Images" :style="isImg" class="fa-solid fa-image" @click="changeNoteFilter('noteImg')"></li>
+                        <li title="Videos" :style="isVideo" class="fa-brands fa-youtube" @click="changeNoteFilter('noteVideo')"></li>
                     </ul>
                 </div>
             </section>

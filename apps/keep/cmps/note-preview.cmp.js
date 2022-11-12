@@ -2,7 +2,7 @@ import noteTxt from './note-txt.cmp.js'
 import noteTodos from './note-todos.cmp.js'
 import noteImg from './note-img.cmp.js'
 import noteVideo from './note-video.cmp.js'
-import colorPicker from './color-picker.cmp.js'
+import colorPalette from './color-palette.cmp.js'
 import noteAudio from './note-audio.cmp.js'
 
 export default {
@@ -15,8 +15,9 @@ export default {
                     <ul class="action-btns clean-list flex space-around">
 						<li title="Pin note" class="fa-solid fa-thumbtack pinned-note" :style="isPinned" @click="onPinNote"></li>
 						<li title="Send as mail" class="fa-solid fa-envelope" @click="onSendToMail"></li>
+						<i @click="toEmail" class="note-to-email-btn fas fa-paper-plane"></i>
                         <li title="Background options"  class=" color-bar fa-solid fa-palette" @click="openColorModal">
-							<color-picker v-if="isChooseClr" :noteId="this.note.id" @colorNote="onColorNote" @closeModal="closeColorModal"></color-picker>
+							<color-palette v-if="isChooseClr" :noteId="this.note.id" @colorNote="onColorNote" @closeModal="closeColorModal"></color-palette>
 						</li>
 						<li title="Make a copy" class="fa-solid fa-copy" @click="onCopyNote"></li>
                         <li title="Edit note" class="fa-solid fa-pen-to-square" @click="onEditNote"></li>
@@ -32,7 +33,7 @@ export default {
 			isChooseClr: false,
 		}
 	},
-	components: { noteTxt, noteTodos, noteImg, noteVideo, colorPicker,noteAudio },
+	components: { noteTxt, noteTodos, noteImg, noteVideo, colorPalette,noteAudio },
 	methods: {
 		openColorModal() {
 			this.isChooseClr = true
@@ -46,9 +47,6 @@ export default {
 		onColorNote(color) {
 			this.$emit('colorNote', this.note.id, color)
 		},
-		onSendToMail() {
-			this.$emit('sendToMail', this.note.id)
-		},
 		onCopyNote() {
 			this.$emit('copyNote', this.note.id)
 		},
@@ -61,6 +59,12 @@ export default {
 		onUpdateInfo(newInfo) {
 			this.$emit('updateInfo', this.note.id, newInfo)
 		},
+		onSendToMail() {
+			this.$emit('sendToMail', this.note.id)
+		},
+		// toEmail() {
+        //     this.$router.push(`mail/${this.note.id}`)
+        // }
 	},
 	computed: {
 		noteBgClr() {

@@ -8,7 +8,6 @@
     .note-list {
         column-count: 1;
     }
-    
     }
     
     /* X-SMALL */
@@ -16,9 +15,13 @@
     .main-cointainer {
         max-width: 390px;
     }
-    
+    /* .sprite {
+        height: 38px;
+        width: 38px;
+      } */
     .note-list {
         column-count: 1;
+        font-size: .9em;
     }
     }
     
@@ -27,9 +30,13 @@
     .main-cointainer {
         max-width: 600px;
     }
-    
+    /* .sprite {
+        height: 44px;
+        width: 44px;
+      } */
     .note-list {
         column-count: 2;
+        font-size: 1.1em;
     }
     
     }
@@ -39,9 +46,14 @@
     .main-cointainer {
         max-width: 800px;
     }
-    
+    /* .sprite {
+        height: 54px;
+        width: 54px;
+      } */
     .note-list {
         column-count: 2;
+        font-size: 1.1em;
+
     }
     
     }
@@ -51,9 +63,15 @@
     .main-cointainer {
         max-width: 1060px;
     }
-    
+    /* .sprite {
+        height: 64px;
+        width: 64px;
+      } */
+
     .note-list {
         column-count: 3;
+        font-size: 1.2em;
+
     }
     }
       
@@ -62,9 +80,10 @@
     .main-cointainer {
         max-width: 1260px;
     }
-    
+
     .note-list {
         column-count: 4;
+        font-size: 1.2em;
     }
     }
       
