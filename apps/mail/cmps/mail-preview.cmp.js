@@ -4,17 +4,19 @@ import { svgService } from '../services/mail-svg.service.js';
 export default {
     props: ['mail'],
     template:`
-        <section class="mail-preview" @click="openPreview" >
+        <section class="mail-preview">
             <input class="selected-icon" type="checkbox" />
             <img class="star-icon" :src="starSrc" alt="star" />
             <img class="important-icon" :src="importantIcon" alt="important" />
-            <div class="mail-sender" :class="{unread: unreadMail}"> {{ mailSender }}</div>
-            <div class="mail-title" >
-                <span :class="{unread: unreadMail}">{{ mailData.subject }} </span>
-                <span> {{ shortenBody }}  </span>
-            </div>
-            <div class="attach-icon"> <img :src="hasAttach" alt="" /> </div>
-            <div class="mail-date" :class="{unread: unreadMail}"> {{ mailDate }} </div>
+            <section class="mail-info" @click="openPreview">
+                <div class="mail-sender" :class="{unread: unreadMail}"> {{ mailSender }}</div>
+                <div class="mail-title" >
+                    <span :class="{unread: unreadMail}">{{ mailData.subject }} </span>
+                    <span> {{ shortenBody }}  </span>
+                </div>
+                <div class="attach-icon"> <img :src="hasAttach" alt="" /> </div>
+                <div class="mail-date" :class="{unread: unreadMail}"> {{ mailDate }} </div>
+            </section>
         </section>
     `, 
     data(){

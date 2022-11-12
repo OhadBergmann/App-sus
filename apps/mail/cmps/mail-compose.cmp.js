@@ -1,5 +1,6 @@
 import { svgService } from '../services/mail-svg.service.js';
-import { eventBus } from '/services/event-bus.service.js';
+import { eventBus,showMailMsg } from '/services/event-bus.service.js';
+import { clientService } from '../services/mail.service.js';
 
 export default { 
     props:['isOpen'],
@@ -23,24 +24,31 @@ export default {
             <section class="new-mail-body">
                 <div class="send-to" @mouseleave="handleConcealment('null')" 
                 :class="{twocells: hasTwoRecipient, threecells: hasThreeRecipient}"> 
-                    <div class="recipient-placeholder" :class="{conceal: hasSubject}">Recipients</div>
+                    <div class="recipient-placeholder" :class="{conceal: hasTarget}">Recipients</div>
                     <div class="to-txt" :class="{conceal: isToTxtConceal}">To:</div>
-                    <input class="target-input recipient" v-model="newMailData.from" type="text" 
+                    <input class="target-input recipient" v-model="newMailData.to.target" type="text" 
                     @focus="handleConcealment('focus')"/>
                     <button class="add-copy btn" @click="handleConcealment('copy')" 
                     :class="{conceal: !isCopyConceal, conceal: isToTxtConceal}">Cc</button>
                     <button class="add-blind-copy btn" @click="handleConcealment('blind')" 
                     :class="{conceal: !isBlindConceal, conceal: isToTxtConceal}">Bcc</button>
                     <div class="cc-txt" :class="{conceal: isCopyConceal}">Cc:</div>
-                    <input class="copy-input recipient" :class="{conceal: isCopyConceal}" type="text"/>
+                    <input class="copy-input recipient" :class="{conceal: isCopyConceal}" type="text" v-model="newMailData.to.cc"/>
                     <div class="bcc-txt" :class="{conceal: isBlindConceal}">Bcc:</div>
-                    <input class="blind-input recipient" :class="{conceal: isBlindConceal}" type="text"/>
+                    <input class="blind-input recipient" :class="{conceal: isBlindConceal}" type="text" v-model="newMailData.to.bcc" />
                 </div>
                 <div class="mail-subject">
                     <input class="subject-txt" v-model="newMailData.subject" type="text" 
                         placeholder="Subject"/>
                 </div>
                 <textarea class="txt-block" v-model="newMailData.body"></textarea>
+                <section class="composer-actions">
+                    <div class="send-container">
+                        <button class="send-btn" @click="checkAndSend">send</button>
+                        <button class="schedule-btn"></button>
+                    </div>
+                    <div id="composer-toolbar"></div>
+                </section>
             </section>
             
         </section>
@@ -70,7 +78,11 @@ export default {
                 hasStar: false,
                 sentAt: -1,
                 from:'',
-                to:'',
+                to: {
+                    target: '',
+                    cc: '',
+                    bcc: '',
+                },
                 hasAttach: false
             },
             
@@ -83,9 +95,31 @@ export default {
 
         eventBus.on('mouseClicked',()=>{
             this.hasMouseClicked = true;
-        })
+        });
+
+        eventBus.on('sendMail',this.onMailSend)
     },
     methods:{
+        onMailSend(){
+            clientService.remove('draft',this.newMailData.id)
+            this.newMailData.tab = 'sent',
+            this.newMailData.sentAt = Date.now();
+            clientService.post('mail', this.newMailData);
+            eventBus.emit('mailComposed');
+            clearInterval(this.saveIntervalId);
+        },
+        checkAndSend(){
+            if(!this.hasValidTarget){
+                showMailMsg('invalid-target')
+                return;
+            }
+            if(!this.hasSubject){
+                showMailMsg('no-subject')
+                return;
+            }
+            showMailMsg('send-mail');
+            this.onMailSend();
+        },
         saveAndClose(){
             clearInterval(this.saveIntervalId);
             this.$emit('saveAndClose',this.newMailData);
@@ -153,8 +187,17 @@ export default {
         },
     },
     computed:{
+        hasTarget(){
+            return (this.newMailData.to.target.length > 0 || !this.isToTxtConceal)? true : false;
+        },
+        hasValidTarget(){
+            if(this.newMailData.to && this.newMailData.to.target.length > 0 && this.newMailData.to.target.includes('@')) return true;
+            return false;
+        },
         hasSubject(){
-            return (this.newMailData.from.length > 0 || !this.isToTxtConceal)? true : false;
+            if(this.newMailData.subject && this.newMailData.subject.length > 0  || 
+                this.newMailData.body && this.newMailData.body.length > 0) return true;
+            return false
         }
     }, 
     watch:{
@@ -187,5 +230,7 @@ export default {
     components:{
         svgService,
         eventBus,
+        showMailMsg,
+        clientService,
     }
 }

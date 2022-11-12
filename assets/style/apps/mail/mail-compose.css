@@ -118,6 +118,7 @@
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+    pointer-events: none;
 }
 
 .mail-composer .send-to .recipient{
@@ -243,4 +244,63 @@
 
 .mail-layout .mail-composer[class*="large"] .txt-block{
     height: 735px;
+}
+
+
+/* --------------------- --------------------- edit actions--------------------- ---------------------*/
+
+.mail-composer .composer-actions{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(25px, 1fr));
+    grid-template-rows: minmax(25px, 1fr);
+}
+
+
+.mail-composer .composer-actions .send-container{
+    grid-column: 1/1;
+    grid-row: 1/1;
+
+    display: flex;
+    flex-direction: row;
+    
+    margin-inline: 15px 5px ;
+    margin-block-end: 5px ;
+    
+}
+
+.composer-actions .send-container:hover > button{
+    box-shadow: 0px 2px 5px 0px var(--mail-send-cls3);
+}
+
+.composer-actions .send-container > button{
+    background-color: var(--mail-send-cls1);
+    border: none;
+    min-height: 20px;
+    min-width: 20px;
+    height: 32px;
+}
+
+.composer-actions .send-container .send-btn{
+    width: 70%;
+    color: var(--clr2);
+    font-size: 1rem;
+    font-weight: 700;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.composer-actions .send-container .send-btn:focus{
+    background-color: var(--mail-send-cls2);
+}
+
+.composer-actions .send-container .schedule-btn{
+    width: 30%;
+    border-left: 1px solid var(--clr5);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.mail-composer .composer-actions .composer-toolbar{
+    grid-column: 2/4;
+    grid-row: 1/1;
 }

@@ -7,6 +7,7 @@ _createMail();
 export const clientService = {
     query,
     post,
+    remove,
 }
 
 function query() {
@@ -33,6 +34,17 @@ function post(storageType, mailData){
 
             break;
     }
+}
+
+function remove(storageType, mailId){
+    switch(storageType){
+        case 'mail':
+            storageService.remove(MAIL_KEY,mailId);
+            break;
+        case 'draft':
+            storageService.remove(DRAFT_KEY,mailId);
+            break;
+        }
 }
 
 function _createMail(){
