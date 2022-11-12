@@ -94,9 +94,9 @@ export default {
 		noteTypePlaceholder() {
 			switch (this.noteType) {
 				case 'noteTxt':
-					return 'Type your text here...'
+					return 'Enter your text here...'
 				case 'noteTodos':
-					return 'Type your tasks here (separated by ",")'
+					return 'Enter your tasks (separated by ",")'
 				case 'noteImg':
 					return 'Enter image URL'
 				case 'noteVideo':
