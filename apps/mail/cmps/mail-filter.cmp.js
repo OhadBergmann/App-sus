@@ -62,7 +62,7 @@ export default {
             }
             this.closeForm();
         }, onFilter(){
-            eventBus.emit('filter', this.filterBy.txt);
+            eventBus.emit('filter', this.filterBy);
         }
     }
     ,components:{

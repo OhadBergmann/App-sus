@@ -14,7 +14,10 @@ export default {
         return {
             mailList: null,
             filteredMail: null,
-            reloader: null
+            reloader: null,
+            filterObj: {
+                txt: ''
+            },
         }
     },
     created() {
@@ -23,21 +26,32 @@ export default {
                 this.mailList = emails;
                 this.filteredMail = emails;
             });
-            eventBus.on('filter',this.onFilter);
+            eventBus.on('filter',this.updateFilter);
         
     },
     methods:{
         updateTab(val){
             this.$router.push({path:'/mail/list', query:{tab:val}})
         },
-        onFilter(value){
-            const str = value.toLowerCase()
-            if(!this.mailList || !value || value.length < 1) {
-                this.filteredMail = this.mailList;
-                return;
+        updateFilter(value){
+            if(value.txt){
+                this.filterObj.txt = value.txt.toLowerCase();
             }
-            const regex = new RegExp(value.toLowerCase(), 'i')
-            this.filteredMail = this.mailList.filter((mail) => {return regex.test(mail.from)});
+            this.onFilter();
+        },
+        onFilter(){
+            this.filteredMail = this.mailList;
+            
+            if(this.filterObj.txt.length > 0){
+                this.filteredMail = this.mailList.filter((mail) => {
+                   
+                    let fromTxt = mail.from.toLowerCase();
+                    let index = fromTxt.indexOf('@');
+                    fromTxt = fromTxt.substring(0,index);
+
+                    return fromTxt.includes(this.filterObj.txt);
+                });
+            }
         }
     }
     ,
