@@ -63,3 +63,42 @@
     width: 56px;
     box-shadow: none;
 }
+
+
+/* --------------------- --------------------- filters --------------------- ---------------------*/
+
+.mail-nav .filters a{
+    display: flex;
+    flex-direction: row;
+}
+
+.mail-nav .filters .nav-btn{
+    background-color: transparent;
+    border: none;
+}
+
+.mail-nav .filters .nav-btn:hover{
+    background-color: var(--mail-clr4b);
+    animation-name: onHoverAnimation;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+section:not(.widthslash) > .filters a:hover{
+    background-color: var(--mail-clr4b);
+    animation-name: onHoverAnimation;
+}
+
+
+
+section:not(.widthslash) > .filters .nav-btn:hover{
+    border-radius: none;
+    background-color: transparent;
+}
+
+.mail-nav .filters .link-txt{
+    align-self: center;
+
+    font-size: 1.3rem;
+
+}

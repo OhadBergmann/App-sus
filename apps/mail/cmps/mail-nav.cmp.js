@@ -14,41 +14,41 @@ export default {
             <span>Compose</span>
         </div>
         <section class="filters">
-            <router-link to="/mail/list">
-                <button>
+            <router-link class="link-inbox" to="/mail/list">
+                <button class="nav-btn circle-animation">
                     <img :src="inboxIcon" alt="inbox" />
                 </button>
-                <div class="inbox-txt">inbox</div>
+                <div class="link-txt" :class="{conceal: hideDescription}">inbox</div>
             </router-link> 
-            <router-link to="/mail/stars">
-                <button>
+            <router-link class="link-star" to="/mail/stars">
+                <button class="nav-btn circle-animation">
                     <img :src="starIcon" alt="starred" />
                 </button>
-                <div class="star-txt">starred</div>
+                <div class="link-txt" :class="{conceal: hideDescription}">starred</div>
             </router-link> 
-            <router-link to="/mail/schedules">
-                <button>
+            <router-link class="link-schedule" to="/mail/schedules">
+                <button class="nav-btn circle-animation">
                     <img :src="scheduleIcon" alt="snoozed" />
                 </button>
-                <div class="snoozed-txt">snoozed</div>
+                <div class="link-txt" :class="{conceal: hideDescription}">snoozed</div>
             </router-link> 
-            <router-link to="/mail/important">
-                <button>
+            <router-link class="link-important" to="/mail/important">
+                <button class="nav-btn circle-animation">
                     <img :src="importantIcon" alt="important" />
                 </button>
-                <div class="important-txt">important</div>
+                <div class="link-txt" :class="{conceal: hideDescription}">important</div>
             </router-link> 
-            <router-link to="/mail/outbox">
-                <button>
+            <router-link class="link-sent" to="/mail/outbox">
+                <button class="nav-btn circle-animation">
                     <img :src="sentIcon" alt="sent" />
                 </button>
-                <div class="sent-txt">sent</div>
+                <div class="link-txt" :class="{conceal: hideDescription}">sent</div>
             </router-link>
-            <router-link to="/mail/draft">
-                <button>
+            <router-link class="link-draft" to="/mail/draft">
+                <button class="nav-btn circle-animation">
                     <img :src="draftIcon" alt="draft" />
                 </button>
-                <div class="draft-txt">draft</div>
+                <div class="link-txt" :class="{conceal: hideDescription}">draft</div>
             </router-link> 
         </section>
     </section>
