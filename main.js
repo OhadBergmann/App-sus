@@ -24,4 +24,10 @@ const options = {
 
 const app = createApp(options)
 app.use(router)
+app.use("/apps", express.static('./apps/'));
+app.use("/assets", express.static('./assets/'));
+app.use("/cmps", express.static('./cmps/'));
+app.use("/lib", express.static('./lib/'));
+app.use("/services", express.static('./services/'));
+app.use("/views", express.static('./views/'));
 app.mount('#app')
