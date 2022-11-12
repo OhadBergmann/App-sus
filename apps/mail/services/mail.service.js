@@ -259,7 +259,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'4uSnH',
-        tab: 'inbox',
+        tab:'inbox',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -272,7 +272,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'YfhW3',
-        tab: 'draft',
+        tab:'draft',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,

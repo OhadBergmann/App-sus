@@ -78,7 +78,7 @@ export default {
                     break;
                 case 'draft':
                     this.filteredMail = this.mailList.filter((mail) => {
-                        return mail.tag === 'send';
+                        return mail.tag === 'draft';
                     });
                     break;
                 default:
