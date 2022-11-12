@@ -15,7 +15,7 @@ export default {
                     <ul class="action-btns clean-list flex space-around">
 						<li title="Pin note" class="fa-solid fa-thumbtack pinned-note" :style="isPinned" @click="onPinNote"></li>
 						<li title="Send as mail" class="fa-solid fa-envelope" @click="onSendToMail"></li>
-						<i @click="toEmail" class="note-to-email-btn fas fa-paper-plane"></i>
+						<!-- <i @click="toEmail" class="note-to-email-btn fas fa-paper-plane"></i> -->
                         <li title="Background options"  class=" color-bar fa-solid fa-palette" @click="openColorModal">
 							<color-palette v-if="isChooseClr" :noteId="this.note.id" @colorNote="onColorNote" @closeModal="closeColorModal"></color-palette>
 						</li>

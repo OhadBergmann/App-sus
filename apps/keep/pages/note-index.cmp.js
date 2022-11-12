@@ -6,14 +6,16 @@ import noteBar from '../cmps/note-bar.cmp.js'
 import noteFilter from '../cmps/note-filter.cmp.js'
 
 export default {
+	name: 'note-index',
+
 	template: `
 		<section class="flex column align-center">
 			<section class="main-container flex column align-center">
 				<note-filter @filtered="setFilter"></note-filter>
 				<note-bar @saveNote="saveNote" :noteToEdit="noteToEdit" @closeEditBox="closeEditBox"></note-bar>
 				<ul class="note-list clean-list">
-					<li v-for="(note, idx) in notesForDisplay" :key="note.id">
-					<note-preview :note="note" @colorNote="changeNoteClr" @sendToMail="sendToMail" @copyNote="copyNote" @removeNote="removeNote" @pinNote="pinNote" @updateInfo="updateInfo" @editNote="editNote"></note-preview>
+					<li v-for="(note, idx) in notesForDisplay" :key="note.id"> 
+					<note-preview :note="note" @colorNote="changeNoteClr" @toEmail="toEmail" @sendToMail="sendToMail" @copyNote="copyNote" @removeNote="removeNote" @pinNote="pinNote" @updateInfo="updateInfo" @editNote="editNote"></note-preview>
 
 					</li>
 				</ul>
@@ -147,6 +149,9 @@ export default {
 				})
 			)
 		},
+		toEmail() {
+            this.$router.push(`mail/${this.note.id}`)
+        }
 	},
 	
 	computed: {
