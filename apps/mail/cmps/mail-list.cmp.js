@@ -6,13 +6,15 @@ export default {
 
     template: `
         <section class="mail-list">
-            <mail-preview v-if="mailList && mailList.length > 0" v-for="mail in filteredMail" :mail="mail"/>
+            <mail-preview v-if="mailList && mailList.length > 0" v-for="mail in filteredMail" :mail="mail"
+            :key="reloader"/>
         </section>
     `,
     data() {
         return {
             mailList: null,
             filteredMail: null,
+            reloader: null
         }
     },
     created() {

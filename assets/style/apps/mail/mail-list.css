@@ -21,11 +21,6 @@
     cursor: pointer;
 }
 
-.mail-list .mail-preview >*{
-    font-size: 1.2rem;
-}
-
-
 .mail-preview .selected-icon{
     grid-column: 1/2;
     grid-row: 1/1;
@@ -41,15 +36,28 @@
     grid-row: 1/1;
 }
 
-.mail-preview .mail-sender{
-    grid-column: 4/8;
+.mail-list .mail-preview .mail-info >*{
+    font-size: 1.2rem;
+}
+
+.mail-preview .mail-info {
+    grid-column: 5/30;
     grid-row: 1/1;
+
+    display: grid;
+    grid-template-columns: repeat(24, minmax(25px,1fr));
+    grid-template-rows: 1fr;
 }
 
 
 
+.mail-preview .mail-sender{
+    grid-column: 1/4;
+    grid-row: 1/1;
+}
+
 .mail-preview .mail-title{
-    grid-column: 9/25;
+    grid-column: 5/19;
     grid-row: 1/1;
 }
 
@@ -58,14 +66,14 @@
 }
 
 .mail-preview .attach-icon{
-    grid-column: 25/25;
+    grid-column: 20/20;
     grid-row: 1/1;
     
     text-align: center;
 }
 
 .mail-preview .mail-date{
-    grid-column: 26/30;
+    grid-column: 21/25;
     grid-row: 1/1;
 
     text-align: center;

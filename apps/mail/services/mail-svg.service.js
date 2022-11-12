@@ -41,6 +41,10 @@ const mailSvgs = {
   minimizeIcon: `./assets/img/minimize-icon.png`,
   shiftSize: `./assets/img/shift-screen-size.png`,
   closeX: `./assets/img/close-x-icon.png`,
+  sentIcon: `./assets/img/sent-icon.png`,
+  scheduleIcon: `./assets/img/schedule-icon.png`,
+  draftIcon: `./assets/img/draft-icon.png`,
+  inboxIcon: `./assets/img/inbox-icon.png`,
 }
 
 function getMailIcon(iconName) {

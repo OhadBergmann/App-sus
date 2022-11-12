@@ -32,3 +32,7 @@ export function showSuccessMsg(txt) {
 export function showErrorMsg(txt) {
     showUserMsg({txt, type: 'error'})
 }
+
+export function showMailMsg(msg) {
+    eventBus.emit('mail-msg', msg);
+}

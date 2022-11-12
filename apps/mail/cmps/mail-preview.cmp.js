@@ -1,20 +1,23 @@
 import { eventBus } from '/services/event-bus.service.js';
 import { svgService } from '../services/mail-svg.service.js';
+import { clientService } from '../services/mail.service.js';
 
 export default {
     props: ['mail'],
     template:`
-        <section class="mail-preview" @click="openPreview" >
+        <section class="mail-preview">
             <input class="selected-icon" type="checkbox" />
-            <img class="star-icon" :src="starSrc" alt="star" />
-            <img class="important-icon" :src="importantIcon" alt="important" />
-            <div class="mail-sender" :class="{unread: unreadMail}"> {{ mailSender }}</div>
-            <div class="mail-title" >
-                <span :class="{unread: unreadMail}">{{ mailData.subject }} </span>
-                <span> {{ shortenBody }}  </span>
-            </div>
-            <div class="attach-icon"> <img :src="hasAttach" alt="" /> </div>
-            <div class="mail-date" :class="{unread: unreadMail}"> {{ mailDate }} </div>
+            <img class="star-icon" :src="starSrc" alt="star" @click="toggleStar" />
+            <img class="important-icon" :src="importantIcon" alt="important" @click="toggleImportant"/>
+            <section class="mail-info" @click="openPreview">
+                <div class="mail-sender" :class="{unread: unreadMail}"> {{ mailSender }}</div>
+                <div class="mail-title" >
+                    <span :class="{unread: unreadMail}">{{ mailData.subject }} </span>
+                    <span> {{ shortenBody }}  </span>
+                </div>
+                <div class="attach-icon"> <img :src="hasAttach" alt="" /> </div>
+                <div class="mail-date" :class="{unread: unreadMail}"> {{ mailDate }} </div>
+            </section>
         </section>
     `, 
     data(){
@@ -38,7 +41,22 @@ export default {
     },
     methods:{
         openPreview(){
+            this.mailData.isRead = true;
+            clientService.remove('mail',this.mailData.id)
+            clientService.put('mail', this.mailData);
             eventBus.emit('showDetails', this.mailData);
+        },
+        toggleStar(){
+            this.mailData.hasStar = ! this.mailData.hasStar;
+            clientService.put('mail', this.mailData);
+            (this.mail.hasStar)? this.starSrc = svgService.getMailIcon('markStar') :
+            this.starSrc = svgService.getMailIcon('star');
+        },
+        toggleImportant(){
+            this.mailData.isImportant = ! this.mailData.isImportant;
+            clientService.put('mail', this.mailData);
+            (this.mail.isImportant)? this.importantIcon = svgService.getMailIcon('markImportant') :
+            this.importantIcon  = svgService.getMailIcon('notImportant');
         }
         
     },
@@ -65,5 +83,6 @@ export default {
     components:{
         eventBus,
         svgService,
+        clientService,
     }
 }

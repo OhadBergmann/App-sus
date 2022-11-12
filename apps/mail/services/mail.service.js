@@ -7,6 +7,8 @@ _createMail();
 export const clientService = {
     query,
     post,
+    remove,
+    put,
 }
 
 function query() {
@@ -20,9 +22,41 @@ function post(storageType, mailData){
             break;
         case 'draft':
             //NOTE: using unshift so the first mail is the last one that had been composed
-            storageService.post(DRAFT_KEY,mailData,false); 
+            storageService.get(DRAFT_KEY, mailData.id)
+                .then(()=>{
+                     //NOTE: if we got an entity from the storage => we need to update it!
+                    storageService.put(DRAFT_KEY, mailData);
+                    console.log('put draft in storage');
+                }).catch(()=>{
+                    //NOTE: async storage service return an error if there is no entity with the id you were looking for
+                    storageService.post(DRAFT_KEY,mailData,false); 
+                    console.log('post draft in storage');
+                });
+
             break;
     }
+}
+
+function put(storageType, mailData) {
+    switch(storageType){
+        case 'mail':
+            storageService.put(MAIL_KEY,mailData);
+            break;
+        case 'draft':
+            storageService.put(DRAFT_KEY,mailData);
+            break;
+        }
+}
+
+function remove(storageType, mailId){
+    switch(storageType){
+        case 'mail':
+            storageService.remove(MAIL_KEY,mailId);
+            break;
+        case 'draft':
+            storageService.remove(DRAFT_KEY,mailId);
+            break;
+        }
 }
 
 function _createMail(){

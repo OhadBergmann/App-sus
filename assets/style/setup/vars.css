@@ -8,6 +8,10 @@
 
   --secondary-clr1: rgb(88, 201, 58);
   --secondary-clr2: rgb(122, 7, 70);
+  --mail-send-cls1: rgba(11, 87, 208, 1);
+  --mail-send-cls2: rgb(85, 130, 202);
+  --mail-send-cls3: rgba(11, 87, 208, 0.45);
+  --mail-more-gray1: rgb(232, 232, 232);
 
   --mail-clr1: rgb(255, 255, 255);
   --mail-clr2: rgba(233, 227, 172, 0.75);
@@ -18,7 +22,6 @@
   --mail-clr6: rgba(100, 75, 75, 0.55);
   --mail-clr7: rgb(75, 75, 75);
   --mail-clr8: rgba(75, 75, 75, 0.5);
-  
   --mail-cls1: rgb(31, 26, 87);
   --mail-cls2: rgb(89, 41, 89);
   --mail-cls3: rgb(38, 72, 92);
