@@ -8,6 +8,7 @@ export const clientService = {
     query,
     post,
     remove,
+    put,
 }
 
 function query() {
@@ -34,6 +35,17 @@ function post(storageType, mailData){
 
             break;
     }
+}
+
+function put(storageType, mailData) {
+    switch(storageType){
+        case 'mail':
+            storageService.put(MAIL_KEY,mailData);
+            break;
+        case 'draft':
+            storageService.put(DRAFT_KEY,mailData);
+            break;
+        }
 }
 
 function remove(storageType, mailId){

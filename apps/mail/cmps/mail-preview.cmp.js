@@ -1,13 +1,14 @@
 import { eventBus } from '/services/event-bus.service.js';
 import { svgService } from '../services/mail-svg.service.js';
+import { clientService } from '../services/mail.service.js';
 
 export default {
     props: ['mail'],
     template:`
         <section class="mail-preview">
             <input class="selected-icon" type="checkbox" />
-            <img class="star-icon" :src="starSrc" alt="star" />
-            <img class="important-icon" :src="importantIcon" alt="important" />
+            <img class="star-icon" :src="starSrc" alt="star" @click="toggleStar" />
+            <img class="important-icon" :src="importantIcon" alt="important" @click="toggleImportant"/>
             <section class="mail-info" @click="openPreview">
                 <div class="mail-sender" :class="{unread: unreadMail}"> {{ mailSender }}</div>
                 <div class="mail-title" >
@@ -41,6 +42,18 @@ export default {
     methods:{
         openPreview(){
             eventBus.emit('showDetails', this.mailData);
+        },
+        toggleStar(){
+            this.mailData.hasStar = ! this.mailData.hasStar;
+            clientService.put('mail', this.mailData);
+            (this.mail.hasStar)? this.starSrc = svgService.getMailIcon('markStar') :
+            this.starSrc = svgService.getMailIcon('star');
+        },
+        toggleImportant(){
+            this.mailData.isImportant = ! this.mailData.isImportant;
+            clientService.put('mail', this.mailData);
+            (this.mail.isImportant)? this.importantIcon = svgService.getMailIcon('markImportant') :
+            this.importantIcon  = svgService.getMailIcon('notImportant');
         }
         
     },
@@ -67,5 +80,6 @@ export default {
     components:{
         eventBus,
         svgService,
+        clientService,
     }
 }

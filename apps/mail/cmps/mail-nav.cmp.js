@@ -13,7 +13,13 @@ export default {
             </button>
             <span>Compose</span>
         </div>
-        <div class="background-container"></div>
+        <router-link to="/mail/list">inbox</router-link> 
+        <router-link to="/mail/stars">star</router-link> 
+        <router-link to="/mail/schedules">schedule</router-link> 
+        <router-link to="/mail/important">important</router-link> 
+        <router-link to="/mail/outbox">sent</router-link>
+        <router-link to="/mail/draft">draft</router-link> 
+        
     </section>
     `, data(){
         return {
