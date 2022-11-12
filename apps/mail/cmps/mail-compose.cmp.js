@@ -1,5 +1,5 @@
 import { svgService } from '../services/mail-svg.service.js';
-import { eventBus,showMailMsg } from '/services/event-bus.service.js';
+import { eventBus,showMailMsg } from 'services/event-bus.service.js';
 import { clientService } from '../services/mail.service.js';
 
 export default { 

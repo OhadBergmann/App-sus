@@ -1,6 +1,6 @@
 import mailPreview from './mail-preview.cmp.js';
 import { clientService } from '../services/mail.service.js'
-import { eventBus } from '/services/event-bus.service.js';
+import { eventBus } from 'services/event-bus.service.js';
 
 export default {
 
