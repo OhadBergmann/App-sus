@@ -1,5 +1,5 @@
 import { svgService } from '../services/mail-svg.service.js';
-import { eventBus } from 'services/event-bus.service.js';
+import { eventBus } from '../../../services/event-bus.service.js';
 
 export default {
     template:`
