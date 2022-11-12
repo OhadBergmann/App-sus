@@ -11,8 +11,18 @@ export const keepService = {
 	get,
 	save,
 	update,
+	toggleTodoCheck,
 }
-
+function toggleTodoCheck(idx, noteId) {
+	const notes = _loadFromStorage()
+	const note = notes.find((note) => noteId === note.id)
+	const todos = note.info.todos
+	todos[idx].isChecked = !todos[idx].isChecked
+	_sortByChecked(todos)
+	_saveToStorage(notes)
+	return Promise.resolve(todos)
+}
+  
 function query() {
 	return storageService.query(NOTES_KEY)
 }
@@ -41,9 +51,9 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: '#fdcfe8',
+				bgClr: '#a7ffeb',
 				type: 'noteTxt',
-				info: { title: '', txt: 'Password: 12345' },
+				info: { title: 'Passwords', txt: 'Password: 12345' },
 			},
 			{
 				id: utilService.makeId(),
@@ -55,9 +65,9 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: '#ffc6ffff',
+				bgClr: '#fff475',
 				type: 'noteTxt',
-				info: { title: '', txt: 'Bank meeting' },
+				info: { title: 'Meetings', txt: 'Bank meeting' },
 			},
 			{
 				id: utilService.makeId(),
@@ -85,7 +95,7 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: '#caffbfff',
+				bgClr: '#ccff90',
 				type: 'noteImg',
 				info: {
 					title: 'What a Vue',
@@ -115,7 +125,7 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: '#ffd6a5ff',
+				bgClr: '#fbbc04',
 				type: 'noteTxt',
 				info: { title: 'Passwords', txt: 'New Password: 12345' },
 			},
@@ -146,7 +156,7 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: '#ffc6ffff',
+				bgClr: '#fdcfe8',
 				type: 'noteImg',
 				info: {
 					title: 'Cute Dog',
@@ -156,7 +166,7 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: 'white',
+				bgClr: '#aecbfa',
 				type: 'noteTxt',
 				info: {
 					title: 'Who will win the World-Cup bets',
@@ -193,7 +203,7 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: '#d7aefb',
+				bgClr: '#ccff90',
 				type: 'noteTxt',
 				info: {
 					title: 'Call my girlfriend!',
@@ -203,7 +213,7 @@ function _createNotes() {
 			{
 				id: utilService.makeId(),
 				isPinned: false,
-				bgClr: 'white',
+				bgClr: '#e8eaed',
 				type: 'noteTxt',
 				info: {
 					title: 'House cleaning',

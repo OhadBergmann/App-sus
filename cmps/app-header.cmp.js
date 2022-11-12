@@ -10,6 +10,12 @@ export default {
                 <router-link to="/books"><div class="sprite books" title="Books"></div></router-link>
                 <router-link to="/about"><div class="sprite about" title="About"></div></router-link>
             </nav>
+            <!-- <button type="button" class="btn-menu" @toggleMenu= "toggleMenu">☰</button> -->
         </header>
     `,
+    // methods: {
+    //     toggleMenu() {
+    //         document.body.classList.toggle('menu-open');
+    //     }
+    // },
 }

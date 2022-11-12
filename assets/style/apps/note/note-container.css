@@ -2,7 +2,7 @@
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 1.1em;
-    min-height: 150px;
+    /* min-height: 150px; */
     margin-bottom: 1em;
     height: fit-content;
     break-inside: avoid-column;
@@ -29,8 +29,4 @@
     margin-bottom: 1em;
 	overflow: hidden;
 	text-overflow: clip;
-}
-
-.note-container .yellow-tack {
-    color: #ffca3a;
 }

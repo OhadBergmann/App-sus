@@ -1,26 +1,27 @@
+
 export default {
-	name: 'editNoteBox',
 	template: `
-        <section class="edit-note-box hide">
-			<form @submit.prevent="saveNote">
+        <section class="edit-note-box">
+			<form @submit.prevent="onSaveNote">
 				<input v-model="this.title" type="text" placeholder="Title" class="title-input" autofocus>
 				<textarea v-model="this.noteInfo" :placeholder="noteTypePlaceholder" cols="30" rows="10" class="note-input" required></textarea>
 				<div class="flex space-between">
-					<input class="note-edit-btns" type="button" @click="onDiscardNote" value="Close">
-					<input class="note-edit-btns" type="submit" value="Save">
-				</div>
+ 					<input class="note-edit-btns" type="button" @click="onDiscardNote" value="Close">
+ 					<input class="note-edit-btns" type="submit" value="Save">
+ 				</div>
 			</form>
 			<div class="note-type-select">
-				<ul class="note-types clean-list flex space-around">
-					<li title="Text" :style="isNote" class="fa-solid fa-comment" @click="changeNoteType('noteTxt')"></li>
-					<li title="List" :style="isList" class="fa-solid fa-list" @click="changeNoteType('noteTodos')"></li>
-					<li title="Image" :style="isImg" class="fa-solid fa-image" @click="changeNoteType('noteImg')"></li>
-					<li title="Youtube video" :style="isVideo" class="fa-brands fa-youtube" @click="changeNoteType('noteVideo')"></li>
-				</ul>
-            </div>
+ 				<ul class="note-types clean-list flex space-around">
+ 					<li title="Add text" :style="isNote" class="fa-solid fa-comment" @click="changeNoteType('noteTxt')"></li>
+ 					<li title="Add List" :style="isList" class="fa-solid fa-list" @click="changeNoteType('noteTodos')"></li>
+ 					<li title="Add image" :style="isImg" class="fa-solid fa-image" @click="changeNoteType('noteImg')"></li>
+ 					<li title="Add Youtube video" :style="isVideo" class="fa-brands fa-youtube" @click="changeNoteType('noteVideo')"></li>
+ 					<li title="Add audio" :style="isAudio" class="fa-solid fa-music" @click="changeNoteType('noteAudio')"></li>
+ 				</ul>
+             </div>
         </section>
     `,
-	props: ['noteType', 'noteEdit'],
+	props: ['noteType', 'noteToEdit'],
 	data() {
 		return {
 			title: null,
@@ -72,7 +73,7 @@ export default {
 					break
 				case 'noteVideo':
 					if (!this.noteInfo.includes('watch?v=')) {
-						console.log('Invalid Youtube link')
+						alert('Not a valid Youtube link')
 						break
 					}
 					let link = this.noteInfo
@@ -90,62 +91,36 @@ export default {
 		},
 	},
 	computed: {
-		isNote() {
-			return {
-				color:
-					this.noteType === 'noteTxt' ||
-					this.noteEdit?.type === 'noteTxt'? '#2f934a': 'black',
-			}
-		},
-		isList() {
-			return {
-				color:
-					this.noteType === 'noteTodos' ||
-					this.noteEdit?.type === 'noteTodos'? '#ffbd00': 'black',
-			}
-		},
-		isImg() {
-			return {
-				color:
-					this.noteType === 'noteImg' ||
-					this.noteEdit?.type === 'noteImg'? '#0077b6': 'black',
-			}
-		},
-		isVideo() {
-			return {
-				color:
-					this.noteType === 'noteVideo' ||
-					this.noteEdit?.type === 'noteVideo'? '#d93025': 'black',
-			}
-		},
 		noteTypePlaceholder() {
 			switch (this.noteType) {
 				case 'noteTxt':
-					return 'Take a note'
+					return 'Type your text here...'
 				case 'noteTodos':
-					return 'Type your tasks (separated by a ",")'
+					return 'Type your tasks here (separated by ",")'
 				case 'noteImg':
 					return 'Enter image URL'
 				case 'noteVideo':
-					return 'Enter Youtube URL'
+					return 'Enter a Youtube URL'
+				case 'noteAudio':
+					return 'Enter a audio URL'
 			}
 		},
-	},
-	created() {
-		if (this.noteEdit) {
-			this.noteEdit = noteEdit
-			this.title = this.noteEdit.info.title
-			this.id = this.noteEdit.id
-			this.isPinned = this.noteEdit.isPinned
-			this.bgClr = this.noteEdit.bgClr
-			this.noteInfo =
-				this.noteEdit.info.txt ||
-				this.noteEdit.info.src ||
-				this.noteEdit.info.todos
-					.map(todo => {
-						return todo.task
-					})
-					.join(',')
-		}
-	},
+
+		},
+		created() {
+			if (this.noteToEdit) {
+				this.title = this.noteToEdit.info.title
+				this.id = this.noteToEdit.id
+				this.isPinned = this.noteToEdit.isPinned
+				this.bgClr = this.noteToEdit.bgClr
+				this.noteInfo =
+					this.noteToEdit.info.txt ||
+					this.noteToEdit.info.src ||
+					this.noteToEdit.info.todos
+						.map(todo => {
+							return todo.task
+						})
+						.join(',')
+			}
+		},
 }

@@ -5,6 +5,8 @@ import noteIndexCmp from './apps/keep/pages/note-index.cmp.js'
 import aboutTeam from "./views/about-team.cmp.js"
 import aboutGoals from "./views/about-goals.cmp.js"
 
+
+
 const { createRouter, createWebHashHistory } = VueRouter
 
 const routerOptions = {

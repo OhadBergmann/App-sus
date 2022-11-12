@@ -15,6 +15,4 @@ export default {
 			src: this.info.src,
 		}
 	},
-	methods: {},
-	computed: {},
 }

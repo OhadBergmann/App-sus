@@ -1,9 +1,23 @@
+.action-btns{
+    opacity: 0;
+    transition: .3s;
+}
+
+.note-container:hover .action-btns{
+    opacity: 1;
+}
+
+.action-btns li:hover{
+    color: grey;
+}
+
+
 .action-btns .fa-palette{
     position: relative;
 }
 
 .color-choose-modal {
-    transform: translate(-47%, 30%);
+    transform: translate(-36%, 49%);
     z-index: 100;
     position:fixed;
     padding: 0.4em;
