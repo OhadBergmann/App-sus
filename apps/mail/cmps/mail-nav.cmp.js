@@ -13,13 +13,44 @@ export default {
             </button>
             <span>Compose</span>
         </div>
-        <router-link to="/mail/list">inbox</router-link> 
-        <router-link to="/mail/stars">star</router-link> 
-        <router-link to="/mail/schedules">schedule</router-link> 
-        <router-link to="/mail/important">important</router-link> 
-        <router-link to="/mail/outbox">sent</router-link>
-        <router-link to="/mail/draft">draft</router-link> 
-        
+        <section class="filters">
+            <router-link to="/mail/list">
+                <button>
+                    <img :src="inboxIcon" alt="inbox" />
+                </button>
+                <div class="inbox-txt">inbox</div>
+            </router-link> 
+            <router-link to="/mail/stars">
+                <button>
+                    <img :src="starIcon" alt="starred" />
+                </button>
+                <div class="star-txt">starred</div>
+            </router-link> 
+            <router-link to="/mail/schedules">
+                <button>
+                    <img :src="scheduleIcon" alt="snoozed" />
+                </button>
+                <div class="snoozed-txt">snoozed</div>
+            </router-link> 
+            <router-link to="/mail/important">
+                <button>
+                    <img :src="importantIcon" alt="important" />
+                </button>
+                <div class="important-txt">important</div>
+            </router-link> 
+            <router-link to="/mail/outbox">
+                <button>
+                    <img :src="sentIcon" alt="sent" />
+                </button>
+                <div class="sent-txt">sent</div>
+            </router-link>
+            <router-link to="/mail/draft">
+                <button>
+                    <img :src="draftIcon" alt="draft" />
+                </button>
+                <div class="draft-txt">draft</div>
+            </router-link> 
+        </section>
     </section>
     `, data(){
         return {

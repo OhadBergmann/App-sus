@@ -41,6 +41,9 @@ export default {
     },
     methods:{
         openPreview(){
+            this.mailData.isRead = true;
+            clientService.remove('mail',this.mailData.id)
+            clientService.put('mail', this.mailData);
             eventBus.emit('showDetails', this.mailData);
         },
         toggleStar(){
