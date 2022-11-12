@@ -104,6 +104,7 @@ export default {
             clientService.remove('draft',this.newMailData.id)
             this.newMailData.tab = 'sent',
             this.newMailData.sentAt = Date.now();
+            this.newMailData.from ='user@appsus.com';
             clientService.post('mail', this.newMailData);
             eventBus.emit('mailComposed');
             clearInterval(this.saveIntervalId);

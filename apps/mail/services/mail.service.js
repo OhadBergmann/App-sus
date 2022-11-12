@@ -233,7 +233,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'SJIHg',
-        tab: 'inbox',
+        tab: 'send',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
@@ -246,15 +246,15 @@ const HARDCODED_MAIL = [
     },
     {
         id:'pHh7h',
-        tab: 'inbox',
-        subject:'Miss you!',
-        body:'Would love to catch up sometimes',
+        tab: 'draft',
+        subject:'I am bot miss you!',
+        body:'please leave me alone!',
         isRead: true,
         isImportant: false,
         hasStar: true,
         sentAt:1551933930594,
-        from:'momo@momo.com',
-        to:'user@appsus.com',
+        from:'user@appsus.com',
+        to:'momo@momo.com',
         hasAttach: false
     },
     {
@@ -272,7 +272,7 @@ const HARDCODED_MAIL = [
     },
     {
         id:'YfhW3',
-        tab: 'inbox',
+        tab: 'draft',
         subject:'Miss you!',
         body:'Would love to catch up sometimes',
         isRead: true,
