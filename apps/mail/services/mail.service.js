@@ -1,4 +1,4 @@
-import { storageService } from '../../services/async-storage.service.js'
+import { storageService } from '../../../services/async-storage.service.js'
 
 const MAIL_KEY = 'loc-mail';
 const DRAFT_KEY = 'draft-mail';
